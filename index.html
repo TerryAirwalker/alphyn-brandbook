@@ -316,7 +316,9 @@ img{max-width:100%}
 .sb-brand{display:flex; align-items:center; gap:10px; padding:4px 6px 18px; border-bottom:1px solid var(--line); margin-bottom:14px}
 .sb-brand .mark{width:34px;height:34px;flex:0 0 34px}
 .sb-brand .mark svg{width:100%;height:100%;display:block}
-.sb-brand .t{font-family:var(--f-disp); font-weight:700; letter-spacing:.14em; font-size:15px}
+.sb-brand .lg{display:flex; flex-direction:column; gap:4px}
+.sb-brand .wm{display:flex}
+.sb-brand .wm svg{height:15px; width:auto; display:block}
 .sb-brand .v{font-size:11px; color:var(--muted); font-family:var(--f-mono)}
 .chap-switch{display:flex; flex-direction:column; gap:3px; margin-bottom:6px}
 .chap-btn{
@@ -451,7 +453,24 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
 <div class="layout">
   <aside class="sidebar"><div class="sb-brand">
 <div class="mark"><svg viewBox="184.95 64.44 120.27 68.26" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><defs><linearGradient id="alphynMark" x1="245" y1="66" x2="245" y2="130" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B8ABF4"/><stop offset=".5" stop-color="#8A5BF0"/><stop offset="1" stop-color="#6E40D7"/></linearGradient></defs><path d="m256.24,71.22l43.7,41.11c2.17,2.04,1.52,3.68-1.46,3.68h-17.94c-4.86,0-6.65-1.07-8.93-5.37l-17.68-33.27c-1.14-2.15-2.03-2.68-4.46-2.68h-8.77c-2.43,0-3.32.54-4.46,2.68l-17.68,33.27c-2.28,4.29-4.07,5.37-8.93,5.37h-17.94c-2.98,0-3.62-1.64-1.46-3.67l43.69-41.11c2.44-2.29,3.7-2.79,7.04-2.79h8.23c3.35,0,4.61.5,7.04,2.79Zm-6.43,12.85h-9.47c-2.78,0-3.79.71-4.72,3.33l-8.72,24.61c-.87,2.46-.6,3.56,1.29,5.34l10.57,9.95c1.22,1.15,1.85,1.4,3.52,1.4h5.58c1.67,0,2.3-.25,3.52-1.4l10.56-9.94c1.9-1.79,2.16-2.89,1.29-5.34l-8.72-24.61c-.93-2.62-1.93-3.33-4.72-3.33Z" fill="url(#alphynMark)"/></svg></div>
-<div><div class="t">ALPHYN</div><div class="v">брендбук · v1.0</div></div>
+<div class="lg"><div class="wm"><svg style="height:15px;width:auto;display:block;fill:#EDEAFB" xmlns="http://www.w3.org/2000/svg" viewBox="163.30 84.39 173.40 28.35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  
+  <g>
+    <path d="m180.83,88.39l-13.53,20.35h4.28l1.96-3.01h17.28l1.92,3.01h4.34l-13.44-20.35h-2.8Zm2.96,6.37l5.1,7.97h-13.4l5.2-7.98c.73-1.12,2.38-1.12,3.1.01Z"/>
+    <path d="m202.83,103.89v-15.5h-3.87v20.35h20.38v-3.01h-14.66c-1.02,0-1.84-.83-1.84-1.84Z"/>
+    <path d="m238.7,88.39h-16.68v20.35h3.84v-5.39c0-1.17.95-2.12,2.12-2.12h10.71c4.62,0,6.39-1.99,6.39-4.91v-3.01c0-2.92-1.76-4.91-6.39-4.91Zm2.54,7.95c0,1.21-.81,1.88-2.54,1.88h-12.83v-6.82h12.83c1.73,0,2.54.66,2.54,1.88v3.06Z"/>
+    <path d="m268.27,96.09c0,1.17-.95,2.12-2.12,2.12h-14.53v-9.82h-3.84v20.35h3.84v-5.4c0-1.17.95-2.12,2.12-2.12h14.53v7.52h3.84v-20.35h-3.84v7.7Z"/>
+    <path d="m290.4,96.36c-.81.75-2.07.75-2.88,0l-8.62-7.97h-4.91l13.07,12.08v8.27h3.84v-8.27l12.98-12.08h-4.86l-8.62,7.97Z"/>
+    <path d="m329.34,88.39v12.16c0,1.22-1.39,1.92-2.37,1.19l-17.89-13.35h-3.32v20.35h3.35v-15.84l21.71,15.84h1.88v-20.35h-3.35Z"/>
+  </g>
+</svg></div><div class="v">брендбук · v1.0</div></div>
 </div>
 <div class="chap-switch">
 <button class="chap-btn" data-chap="core"><span class="n">01</span>Основной бренд</button>
@@ -646,70 +665,14 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
       <div class="small" style="padding:10px 8px;color:var(--soft)">Контур (тех-акцент)</div></div>
     </div></section>
 <section class="band" id="variants"><h2>Вариации логотипа</h2>
-    <p class="lead">Официальные версии логотипа. Цвет выбирается по фону: на тёмном — полный локап
-    с белым начертанием или mark-градиент знака, на светлом — версия с индиго-начертанием.</p>
-    <div class="grid g2" style="margin-top:22px"><div class="card" style="padding:0;overflow:hidden"><div style="background:var(--ink);min-height:120px;display:grid;place-items:center;padding:22px"><div style="width:76%;max-width:230px"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="124.17 76.35 253.81 43.51">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #fff;
-      }
+    <p class="lead">Логотип существует в двух формах — <strong>полный локап</strong> (знак + начертание
+    ALPHYN) и <strong>отдельный знак</strong>. Цвет выбирается по фону. Начертание ALPHYN отдельно
+    от знака не используется.</p>
 
-      .cls-2 {
-        fill: url(#ldgrad0);
-      }
-    </style>
-    <linearGradient id="ldgrad0" data-name="Безымянный градиент 13" x1="161.26" y1="80.36" x2="161.26" y2="115.86" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#6e40d7"/>
-      <stop offset="1" stop-color="#22186e"/>
-    </linearGradient>
-  </defs>
-  
-  <g>
-    <g>
-      <path class="cls-1" d="m222.11,88.03l-13.53,20.35h4.28l1.96-3.01h17.28l1.92,3.01h4.34l-13.44-20.35h-2.8Zm2.96,6.37l5.1,7.97h-13.4l5.2-7.98c.73-1.12,2.38-1.12,3.1.01Z"/>
-      <path class="cls-1" d="m244.11,103.53v-15.5h-3.87v20.35h20.38v-3.01h-14.66c-1.02,0-1.84-.83-1.84-1.84Z"/>
-      <path class="cls-1" d="m279.98,88.03h-16.68v20.35h3.84v-5.39c0-1.17.95-2.12,2.12-2.12h10.71c4.62,0,6.39-1.99,6.39-4.91v-3.01c0-2.92-1.76-4.91-6.39-4.91Zm2.54,7.95c0,1.21-.81,1.88-2.54,1.88h-12.83v-6.82h12.83c1.73,0,2.54.66,2.54,1.88v3.06Z"/>
-      <path class="cls-1" d="m309.55,95.73c0,1.17-.95,2.12-2.12,2.12h-14.53v-9.82h-3.84v20.35h3.84v-5.4c0-1.17.95-2.12,2.12-2.12h14.53v7.52h3.84v-20.35h-3.84v7.7Z"/>
-      <path class="cls-1" d="m331.68,96.01c-.81.75-2.07.75-2.88,0l-8.62-7.97h-4.91l13.07,12.08v8.27h3.84v-8.27l12.98-12.08h-4.86l-8.62,7.97Z"/>
-      <path class="cls-1" d="m370.62,88.03v12.16c0,1.22-1.39,1.92-2.37,1.19l-17.89-13.35h-3.32v20.35h3.35v-15.84l21.71,15.84h1.88v-20.35h-3.35Z"/>
-    </g>
-    <path class="cls-2" d="m167.83,82l25.74,24.22c1.28,1.2.89,2.16-.86,2.16h-10.57c-2.86,0-3.92-.63-5.26-3.16l-10.42-19.6c-.67-1.26-1.2-1.58-2.63-1.58h-5.17c-1.43,0-1.96.32-2.63,1.58l-10.42,19.6c-1.34,2.53-2.4,3.16-5.26,3.16h-10.57c-1.75,0-2.13-.96-.86-2.16l25.74-24.22c1.44-1.35,2.18-1.65,4.15-1.65h4.85c1.97,0,2.71.29,4.15,1.64Zm-3.78,7.57h-5.58c-1.64,0-2.23.42-2.78,1.96l-5.14,14.5c-.51,1.45-.36,2.1.76,3.15l6.23,5.86c.72.68,1.09.82,2.07.82h3.29c.99,0,1.36-.15,2.07-.82l6.22-5.86c1.12-1.05,1.27-1.7.76-3.15l-5.14-14.5c-.55-1.55-1.14-1.96-2.78-1.96Z"/>
-  </g>
-</svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Полный локап — на тёмном (основной)</div></div><div class="card" style="padding:0;overflow:hidden"><div style="background:#fff;min-height:120px;display:grid;place-items:center;padding:22px"><div style="width:76%;max-width:230px"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 viewBox="124.19 84.33 253.79 43.51">
-<style type="text/css">
-	.st0{fill:url(#llgrad0);}
-</style>
-<g>
-	<g>
-		<g>
-			<path d="M222.11,96.01l-13.53,20.35h4.28l1.96-3.01h17.28l1.92,3.01h4.34l-13.44-20.35H222.11z M225.07,102.38l5.1,7.97h-13.4
-				l5.2-7.98C222.7,101.24,224.34,101.25,225.07,102.38z"/>
-			<path d="M244.11,111.51v-15.5h-3.87v20.35h20.38v-3.01h-14.66C244.93,113.35,244.11,112.53,244.11,111.51z"/>
-			<path d="M279.98,96.01H263.3v20.35h3.84v-5.39c0-1.17,0.95-2.12,2.12-2.12h10.71c4.62,0,6.39-1.99,6.39-4.91v-3.01
-				C286.37,98.01,284.6,96.01,279.98,96.01z M282.52,103.96c0,1.21-0.81,1.88-2.54,1.88h-12.83v-6.82h12.83
-				c1.73,0,2.54,0.66,2.54,1.88V103.96z"/>
-			<path d="M309.55,103.71c0,1.17-0.95,2.12-2.12,2.12H292.9v-9.82h-3.84v20.35h3.84v-5.4c0-1.17,0.95-2.12,2.12-2.12h14.53v7.52
-				h3.84V96.01h-3.84V103.71z"/>
-			<path d="M331.68,103.98c-0.81,0.75-2.07,0.75-2.88,0l-8.62-7.97h-4.91l13.07,12.08v8.27h3.84v-8.27l12.98-12.08h-4.86
-				L331.68,103.98z"/>
-			<path d="M370.62,96.01v12.16c0,1.22-1.39,1.92-2.37,1.19l-17.89-13.35h-3.32v20.35h3.35v-15.84l21.71,15.84h1.88V96.01H370.62z"
-				/>
-		</g>
-	</g>
-	<linearGradient id="llgrad0" gradientUnits="userSpaceOnUse" x1="161.2573" y1="88.3376" x2="161.2573" y2="123.8432">
-		<stop  offset="0" style="stop-color:#6E40D7"/>
-		<stop  offset="1" style="stop-color:#22186E"/>
-	</linearGradient>
-	<path class="st0" d="M167.83,89.98l25.74,24.22c1.28,1.2,0.89,2.16-0.86,2.16h-10.57c-2.86,0-3.92-0.63-5.26-3.16l-10.42-19.6
-		c-0.67-1.26-1.2-1.58-2.63-1.58h-5.17c-1.43,0-1.96,0.32-2.63,1.58l-10.42,19.6c-1.34,2.53-2.4,3.16-5.26,3.16H129.8
-		c-1.75,0-2.13-0.96-0.86-2.16l25.74-24.22c1.44-1.35,2.18-1.65,4.15-1.65h4.85C165.65,88.34,166.39,88.63,167.83,89.98z
-		 M164.04,97.55h-5.58c-1.64,0-2.23,0.42-2.78,1.96l-5.14,14.5c-0.51,1.45-0.36,2.1,0.76,3.15l6.23,5.86
-		c0.72,0.68,1.09,0.82,2.07,0.82h3.29c0.99,0,1.36-0.15,2.07-0.82l6.22-5.86c1.12-1.05,1.27-1.7,0.76-3.15l-5.14-14.5
-		C166.28,97.97,165.68,97.55,164.04,97.55z"/>
-</g>
-</svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Полный локап — на светлом</div></div><div class="card" style="padding:0;overflow:hidden"><div style="background:var(--ink);min-height:120px;display:grid;place-items:center;padding:22px"><div style="width:76%;max-width:230px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="173.91 83.94 173.40 28.35">
+    <h3>Полный локап (горизонтальный)</h3>
+    <p class="small" style="margin-bottom:6px"><strong>Основное применение.</strong> Везде, где достаточно
+    горизонтального пространства: веб-шапки, презентации, документы, обложки. Приоритет по умолчанию.</p>
+    <div class="grid g3" style="margin-top:14px"><div class="card" style="padding:0;overflow:hidden"><div style="background:#F1EFFA;min-height:120px;display:grid;place-items:center;padding:22px"><div style="display:flex;align-items:center;gap:14px"><div style="width:34px;height:34px;flex:0 0 34px"><svg viewBox="184.95 64.44 120.27 68.26" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><path d="m256.24,71.22l43.7,41.11c2.17,2.04,1.52,3.68-1.46,3.68h-17.94c-4.86,0-6.65-1.07-8.93-5.37l-17.68-33.27c-1.14-2.15-2.03-2.68-4.46-2.68h-8.77c-2.43,0-3.32.54-4.46,2.68l-17.68,33.27c-2.28,4.29-4.07,5.37-8.93,5.37h-17.94c-2.98,0-3.62-1.64-1.46-3.67l43.69-41.11c2.44-2.29,3.7-2.79,7.04-2.79h8.23c3.35,0,4.61.5,7.04,2.79Zm-6.43,12.85h-9.47c-2.78,0-3.79.71-4.72,3.33l-8.72,24.61c-.87,2.46-.6,3.56,1.29,5.34l10.57,9.95c1.22,1.15,1.85,1.4,3.52,1.4h5.58c1.67,0,2.3-.25,3.52-1.4l10.56-9.94c1.9-1.79,2.16-2.89,1.29-5.34l-8.72-24.61c-.93-2.62-1.93-3.33-4.72-3.33Z" fill="#22186E"/></svg></div><svg style="height:21px;width:auto;display:block;fill:#22186E" xmlns="http://www.w3.org/2000/svg" viewBox="163.30 84.39 173.40 28.35">
   <defs>
     <style>
       .cls-1 {
@@ -719,14 +682,54 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
   </defs>
   
   <g>
-    <path class="cls-1" d="m191.44,87.94l-13.53,20.35h4.28l1.96-3.01h17.28l1.92,3.01h4.34l-13.44-20.35h-2.8Zm2.96,6.37l5.1,7.97h-13.4l5.2-7.98c.73-1.12,2.38-1.12,3.1.01Z"/>
-    <path class="cls-1" d="m213.44,103.44v-15.5h-3.87v20.35h20.38v-3.01h-14.66c-1.02,0-1.84-.83-1.84-1.84Z"/>
-    <path class="cls-1" d="m249.31,87.94h-16.68v20.35h3.84v-5.39c0-1.17.95-2.12,2.12-2.12h10.71c4.62,0,6.39-1.99,6.39-4.91v-3.01c0-2.92-1.76-4.91-6.39-4.91Zm2.54,7.95c0,1.21-.81,1.88-2.54,1.88h-12.83v-6.82h12.83c1.73,0,2.54.66,2.54,1.88v3.06Z"/>
-    <path class="cls-1" d="m278.88,95.64c0,1.17-.95,2.12-2.12,2.12h-14.53v-9.82h-3.84v20.35h3.84v-5.4c0-1.17.95-2.12,2.12-2.12h14.53v7.52h3.84v-20.35h-3.84v7.7Z"/>
-    <path class="cls-1" d="m301.02,95.91c-.81.75-2.07.75-2.88,0l-8.62-7.97h-4.91l13.07,12.08v8.27h3.84v-8.27l12.98-12.08h-4.86l-8.62,7.97Z"/>
-    <path class="cls-1" d="m339.95,87.94v12.16c0,1.22-1.39,1.92-2.37,1.19l-17.89-13.35h-3.32v20.35h3.35v-15.84l21.71,15.84h1.88v-20.35h-3.35Z"/>
+    <path d="m180.83,88.39l-13.53,20.35h4.28l1.96-3.01h17.28l1.92,3.01h4.34l-13.44-20.35h-2.8Zm2.96,6.37l5.1,7.97h-13.4l5.2-7.98c.73-1.12,2.38-1.12,3.1.01Z"/>
+    <path d="m202.83,103.89v-15.5h-3.87v20.35h20.38v-3.01h-14.66c-1.02,0-1.84-.83-1.84-1.84Z"/>
+    <path d="m238.7,88.39h-16.68v20.35h3.84v-5.39c0-1.17.95-2.12,2.12-2.12h10.71c4.62,0,6.39-1.99,6.39-4.91v-3.01c0-2.92-1.76-4.91-6.39-4.91Zm2.54,7.95c0,1.21-.81,1.88-2.54,1.88h-12.83v-6.82h12.83c1.73,0,2.54.66,2.54,1.88v3.06Z"/>
+    <path d="m268.27,96.09c0,1.17-.95,2.12-2.12,2.12h-14.53v-9.82h-3.84v20.35h3.84v-5.4c0-1.17.95-2.12,2.12-2.12h14.53v7.52h3.84v-20.35h-3.84v7.7Z"/>
+    <path d="m290.4,96.36c-.81.75-2.07.75-2.88,0l-8.62-7.97h-4.91l13.07,12.08v8.27h3.84v-8.27l12.98-12.08h-4.86l-8.62,7.97Z"/>
+    <path d="m329.34,88.39v12.16c0,1.22-1.39,1.92-2.37,1.19l-17.89-13.35h-3.32v20.35h3.35v-15.84l21.71,15.84h1.88v-20.35h-3.35Z"/>
   </g>
-</svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Только начертание ALPHYN</div></div><div class="card" style="padding:0;overflow:hidden"><div style="background:var(--ink);min-height:120px;display:grid;place-items:center;padding:22px"><div style="width:76%;max-width:230px"><svg viewBox="184.95 64.44 120.27 68.26" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><defs><linearGradient id="alphynMark" x1="245" y1="66" x2="245" y2="130" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B8ABF4"/><stop offset=".5" stop-color="#8A5BF0"/><stop offset="1" stop-color="#6E40D7"/></linearGradient></defs><path d="m256.24,71.22l43.7,41.11c2.17,2.04,1.52,3.68-1.46,3.68h-17.94c-4.86,0-6.65-1.07-8.93-5.37l-17.68-33.27c-1.14-2.15-2.03-2.68-4.46-2.68h-8.77c-2.43,0-3.32.54-4.46,2.68l-17.68,33.27c-2.28,4.29-4.07,5.37-8.93,5.37h-17.94c-2.98,0-3.62-1.64-1.46-3.67l43.69-41.11c2.44-2.29,3.7-2.79,7.04-2.79h8.23c3.35,0,4.61.5,7.04,2.79Zm-6.43,12.85h-9.47c-2.78,0-3.79.71-4.72,3.33l-8.72,24.61c-.87,2.46-.6,3.56,1.29,5.34l10.57,9.95c1.22,1.15,1.85,1.4,3.52,1.4h5.58c1.67,0,2.3-.25,3.52-1.4l10.56-9.94c1.9-1.79,2.16-2.89,1.29-5.34l-8.72-24.61c-.93-2.62-1.93-3.33-4.72-3.33Z" fill="url(#alphynMark)"/></svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Только знак</div></div></div>
+</svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Индиго на светлом</div></div><div class="card" style="padding:0;overflow:hidden"><div style="background:#FFFFFF;min-height:120px;display:grid;place-items:center;padding:22px"><div style="display:flex;align-items:center;gap:14px"><div style="width:34px;height:34px;flex:0 0 34px"><svg viewBox="184.95 64.44 120.27 68.26" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><defs><linearGradient id="alphynMark" x1="245" y1="66" x2="245" y2="130" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B8ABF4"/><stop offset=".5" stop-color="#8A5BF0"/><stop offset="1" stop-color="#6E40D7"/></linearGradient></defs><path d="m256.24,71.22l43.7,41.11c2.17,2.04,1.52,3.68-1.46,3.68h-17.94c-4.86,0-6.65-1.07-8.93-5.37l-17.68-33.27c-1.14-2.15-2.03-2.68-4.46-2.68h-8.77c-2.43,0-3.32.54-4.46,2.68l-17.68,33.27c-2.28,4.29-4.07,5.37-8.93,5.37h-17.94c-2.98,0-3.62-1.64-1.46-3.67l43.69-41.11c2.44-2.29,3.7-2.79,7.04-2.79h8.23c3.35,0,4.61.5,7.04,2.79Zm-6.43,12.85h-9.47c-2.78,0-3.79.71-4.72,3.33l-8.72,24.61c-.87,2.46-.6,3.56,1.29,5.34l10.57,9.95c1.22,1.15,1.85,1.4,3.52,1.4h5.58c1.67,0,2.3-.25,3.52-1.4l10.56-9.94c1.9-1.79,2.16-2.89,1.29-5.34l-8.72-24.61c-.93-2.62-1.93-3.33-4.72-3.33Z" fill="url(#alphynMark)"/></svg></div><svg style="height:21px;width:auto;display:block;fill:#22186E" xmlns="http://www.w3.org/2000/svg" viewBox="163.30 84.39 173.40 28.35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  
+  <g>
+    <path d="m180.83,88.39l-13.53,20.35h4.28l1.96-3.01h17.28l1.92,3.01h4.34l-13.44-20.35h-2.8Zm2.96,6.37l5.1,7.97h-13.4l5.2-7.98c.73-1.12,2.38-1.12,3.1.01Z"/>
+    <path d="m202.83,103.89v-15.5h-3.87v20.35h20.38v-3.01h-14.66c-1.02,0-1.84-.83-1.84-1.84Z"/>
+    <path d="m238.7,88.39h-16.68v20.35h3.84v-5.39c0-1.17.95-2.12,2.12-2.12h10.71c4.62,0,6.39-1.99,6.39-4.91v-3.01c0-2.92-1.76-4.91-6.39-4.91Zm2.54,7.95c0,1.21-.81,1.88-2.54,1.88h-12.83v-6.82h12.83c1.73,0,2.54.66,2.54,1.88v3.06Z"/>
+    <path d="m268.27,96.09c0,1.17-.95,2.12-2.12,2.12h-14.53v-9.82h-3.84v20.35h3.84v-5.4c0-1.17.95-2.12,2.12-2.12h14.53v7.52h3.84v-20.35h-3.84v7.7Z"/>
+    <path d="m290.4,96.36c-.81.75-2.07.75-2.88,0l-8.62-7.97h-4.91l13.07,12.08v8.27h3.84v-8.27l12.98-12.08h-4.86l-8.62,7.97Z"/>
+    <path d="m329.34,88.39v12.16c0,1.22-1.39,1.92-2.37,1.19l-17.89-13.35h-3.32v20.35h3.35v-15.84l21.71,15.84h1.88v-20.35h-3.35Z"/>
+  </g>
+</svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Градиент-знак на светлом (основной)</div></div><div class="card" style="padding:0;overflow:hidden"><div style="background:var(--ink);min-height:120px;display:grid;place-items:center;padding:22px"><div style="display:flex;align-items:center;gap:14px"><div style="width:34px;height:34px;flex:0 0 34px"><svg viewBox="184.95 64.44 120.27 68.26" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><path d="m256.24,71.22l43.7,41.11c2.17,2.04,1.52,3.68-1.46,3.68h-17.94c-4.86,0-6.65-1.07-8.93-5.37l-17.68-33.27c-1.14-2.15-2.03-2.68-4.46-2.68h-8.77c-2.43,0-3.32.54-4.46,2.68l-17.68,33.27c-2.28,4.29-4.07,5.37-8.93,5.37h-17.94c-2.98,0-3.62-1.64-1.46-3.67l43.69-41.11c2.44-2.29,3.7-2.79,7.04-2.79h8.23c3.35,0,4.61.5,7.04,2.79Zm-6.43,12.85h-9.47c-2.78,0-3.79.71-4.72,3.33l-8.72,24.61c-.87,2.46-.6,3.56,1.29,5.34l10.57,9.95c1.22,1.15,1.85,1.4,3.52,1.4h5.58c1.67,0,2.3-.25,3.52-1.4l10.56-9.94c1.9-1.79,2.16-2.89,1.29-5.34l-8.72-24.61c-.93-2.62-1.93-3.33-4.72-3.33Z" fill="#FFFFFF"/></svg></div><svg style="height:21px;width:auto;display:block;fill:#EDEAFB" xmlns="http://www.w3.org/2000/svg" viewBox="163.30 84.39 173.40 28.35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  
+  <g>
+    <path d="m180.83,88.39l-13.53,20.35h4.28l1.96-3.01h17.28l1.92,3.01h4.34l-13.44-20.35h-2.8Zm2.96,6.37l5.1,7.97h-13.4l5.2-7.98c.73-1.12,2.38-1.12,3.1.01Z"/>
+    <path d="m202.83,103.89v-15.5h-3.87v20.35h20.38v-3.01h-14.66c-1.02,0-1.84-.83-1.84-1.84Z"/>
+    <path d="m238.7,88.39h-16.68v20.35h3.84v-5.39c0-1.17.95-2.12,2.12-2.12h10.71c4.62,0,6.39-1.99,6.39-4.91v-3.01c0-2.92-1.76-4.91-6.39-4.91Zm2.54,7.95c0,1.21-.81,1.88-2.54,1.88h-12.83v-6.82h12.83c1.73,0,2.54.66,2.54,1.88v3.06Z"/>
+    <path d="m268.27,96.09c0,1.17-.95,2.12-2.12,2.12h-14.53v-9.82h-3.84v20.35h3.84v-5.4c0-1.17.95-2.12,2.12-2.12h14.53v7.52h3.84v-20.35h-3.84v7.7Z"/>
+    <path d="m290.4,96.36c-.81.75-2.07.75-2.88,0l-8.62-7.97h-4.91l13.07,12.08v8.27h3.84v-8.27l12.98-12.08h-4.86l-8.62,7.97Z"/>
+    <path d="m329.34,88.39v12.16c0,1.22-1.39,1.92-2.37,1.19l-17.89-13.35h-3.32v20.35h3.35v-15.84l21.71,15.84h1.88v-20.35h-3.35Z"/>
+  </g>
+</svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Белый на тёмном</div></div></div>
+
+    <h3>Только знак</h3>
+    <p class="small" style="margin-bottom:6px"><strong>Узнаваемый контекст.</strong> Аватар, фавикон, иконка
+    приложения, элемент навигации, угол рабочего слайда. Минимальный размер — 24&nbsp;px.</p>
+    <div class="grid g3" style="margin-top:14px"><div class="card" style="padding:0;overflow:hidden"><div style="background:#F1EFFA;min-height:120px;display:grid;place-items:center;padding:22px"><div style="width:62px;height:62px"><svg viewBox="184.95 64.44 120.27 68.26" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><path d="m256.24,71.22l43.7,41.11c2.17,2.04,1.52,3.68-1.46,3.68h-17.94c-4.86,0-6.65-1.07-8.93-5.37l-17.68-33.27c-1.14-2.15-2.03-2.68-4.46-2.68h-8.77c-2.43,0-3.32.54-4.46,2.68l-17.68,33.27c-2.28,4.29-4.07,5.37-8.93,5.37h-17.94c-2.98,0-3.62-1.64-1.46-3.67l43.69-41.11c2.44-2.29,3.7-2.79,7.04-2.79h8.23c3.35,0,4.61.5,7.04,2.79Zm-6.43,12.85h-9.47c-2.78,0-3.79.71-4.72,3.33l-8.72,24.61c-.87,2.46-.6,3.56,1.29,5.34l10.57,9.95c1.22,1.15,1.85,1.4,3.52,1.4h5.58c1.67,0,2.3-.25,3.52-1.4l10.56-9.94c1.9-1.79,2.16-2.89,1.29-5.34l-8.72-24.61c-.93-2.62-1.93-3.33-4.72-3.33Z" fill="#22186E"/></svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Индиго знак на светлом</div></div><div class="card" style="padding:0;overflow:hidden"><div style="background:#FFFFFF;min-height:120px;display:grid;place-items:center;padding:22px"><div style="width:62px;height:62px"><svg viewBox="184.95 64.44 120.27 68.26" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><defs><linearGradient id="alphynMark" x1="245" y1="66" x2="245" y2="130" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#B8ABF4"/><stop offset=".5" stop-color="#8A5BF0"/><stop offset="1" stop-color="#6E40D7"/></linearGradient></defs><path d="m256.24,71.22l43.7,41.11c2.17,2.04,1.52,3.68-1.46,3.68h-17.94c-4.86,0-6.65-1.07-8.93-5.37l-17.68-33.27c-1.14-2.15-2.03-2.68-4.46-2.68h-8.77c-2.43,0-3.32.54-4.46,2.68l-17.68,33.27c-2.28,4.29-4.07,5.37-8.93,5.37h-17.94c-2.98,0-3.62-1.64-1.46-3.67l43.69-41.11c2.44-2.29,3.7-2.79,7.04-2.79h8.23c3.35,0,4.61.5,7.04,2.79Zm-6.43,12.85h-9.47c-2.78,0-3.79.71-4.72,3.33l-8.72,24.61c-.87,2.46-.6,3.56,1.29,5.34l10.57,9.95c1.22,1.15,1.85,1.4,3.52,1.4h5.58c1.67,0,2.3-.25,3.52-1.4l10.56-9.94c1.9-1.79,2.16-2.89,1.29-5.34l-8.72-24.61c-.93-2.62-1.93-3.33-4.72-3.33Z" fill="url(#alphynMark)"/></svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Градиент-знак на светлом</div></div><div class="card" style="padding:0;overflow:hidden"><div style="background:var(--ink);min-height:120px;display:grid;place-items:center;padding:22px"><div style="width:62px;height:62px"><svg viewBox="184.95 64.44 120.27 68.26" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><path d="m256.24,71.22l43.7,41.11c2.17,2.04,1.52,3.68-1.46,3.68h-17.94c-4.86,0-6.65-1.07-8.93-5.37l-17.68-33.27c-1.14-2.15-2.03-2.68-4.46-2.68h-8.77c-2.43,0-3.32.54-4.46,2.68l-17.68,33.27c-2.28,4.29-4.07,5.37-8.93,5.37h-17.94c-2.98,0-3.62-1.64-1.46-3.67l43.69-41.11c2.44-2.29,3.7-2.79,7.04-2.79h8.23c3.35,0,4.61.5,7.04,2.79Zm-6.43,12.85h-9.47c-2.78,0-3.79.71-4.72,3.33l-8.72,24.61c-.87,2.46-.6,3.56,1.29,5.34l10.57,9.95c1.22,1.15,1.85,1.4,3.52,1.4h5.58c1.67,0,2.3-.25,3.52-1.4l10.56-9.94c1.9-1.79,2.16-2.89,1.29-5.34l-8.72-24.61c-.93-2.62-1.93-3.33-4.72-3.33Z" fill="#FFFFFF"/></svg></div></div><div class="small" style="padding:10px 12px;color:var(--soft)">Белый знак на тёмном</div></div></div>
+
     <h3>Роли знака в системе</h3>
     <p>Помимо готовых локапов, знак работает как самостоятельный графический элемент — от максимального
     присутствия до тонкого тех-акцента.</p>
