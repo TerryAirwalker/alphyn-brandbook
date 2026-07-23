@@ -3,7 +3,7 @@
  "meta": {
   "brand": "Alphyn",
   "tagline": "Open lakehouse platform — from raw data to agentic AI",
-  "version": "1.1",
+  "version": "1.2",
   "updated": "23.07.2026",
   "brandbook_url": "https://TerryAirwalker.github.io/alphyn-brandbook/",
   "manifest_url": "https://TerryAirwalker.github.io/alphyn-brandbook/manifest.json",
@@ -245,15 +245,25 @@
   "fonts": {
    "heading": {
     "family": "Onest",
-    "use": "заголовки, акцентные надписи",
+    "use": "заголовки, акцентные надписи (базовая гарнитура; RU и EN)",
     "weights": [
      700,
      800
     ]
    },
+   "heading_en": {
+    "family": "Bricolage Grotesque",
+    "use": "ТОЛЬКО заголовки EN-материалов (латиница); в кириллице не применяется — там заголовки на Onest",
+    "weights": [
+     600,
+     700,
+     800
+    ],
+    "scope": "latin_headlines_only"
+   },
    "body": {
     "family": "Onest",
-    "use": "основной текст, подписи, UI",
+    "use": "основной текст, подписи, UI (RU и EN)",
     "weights": [
      400,
      500,
@@ -269,16 +279,16 @@
     ]
    }
   },
-  "single_family_note": "Одна текстовая гарнитура на всё — Onest (латиница и кириллица в едином ритме). Иерархия строится начертанием (800→700→600→400) и кеглем, а не сменой шрифта.",
+  "single_family_note": "Базовая текстовая гарнитура на всё — Onest (латиница и кириллица в едином ритме); иерархия строится начертанием (800→700→600→400) и кеглем. Единственное исключение — заголовки англоязычных материалов: их можно набирать Bricolage Grotesque (латиница). Body-текст всегда Onest; кириллические заголовки всегда Onest (у Bricolage нет кириллицы).",
   "forbidden_fonts": [
    "Inter",
-   "Bricolage",
    "Arial",
    "Calibri",
    "Times New Roman",
    "любые системные/сторонние"
   ],
-  "embed": "Onest и JetBrains Mono ВСТРАИВАТЬ в артефакты (@font-face data:font base64 для HTML; p:embeddedFontLst для .pptx). Обе OFL — лицензия не нужна.",
+  "bricolage_exception": "Bricolage Grotesque разрешён ТОЛЬКО для заголовков EN-материалов (латиница, вес 600–800). Запрещён для: любого кириллического текста, body-текста, mono-лейблов, UI. По умолчанию (RU-материалы) заголовки — Onest.",
+  "embed": "Все используемые шрифты (Onest, JetBrains Mono, при EN-заголовках — Bricolage Grotesque latin) ВСТРАИВАТЬ в артефакты (@font-face data:font base64 для HTML; p:embeddedFontLst для .pptx). Все OFL — лицензия не нужна.",
   "hierarchy_desktop": [
    {
     "level": "H1",
@@ -339,12 +349,12 @@
    "roles": [
     {
      "role": "Заголовок обложки",
-     "font": "Onest 800",
+     "font": "Onest 800 (EN — Bricolage Grotesque 700/800)",
      "size_pt": "36–48"
     },
     {
      "role": "Заголовок слайда",
-     "font": "Onest 800",
+     "font": "Onest 800 (EN — Bricolage Grotesque 700/800)",
      "size_pt": "28–40",
      "color_dark_bg": "#EDEAFB",
      "color_light_bg": "#22186E"
@@ -352,16 +362,23 @@
     {
      "role": "Подзаголовок/lead",
      "font": "Onest 400/500",
-     "size_pt": "16–20",
+     "size_pt": "18–22",
      "color_dark_bg": "#C9C2E6",
      "color_light_bg": "#473A6B"
     },
     {
      "role": "Основной текст/буллеты",
-     "font": "Onest 400",
-     "size_pt": "14–16",
-     "color_dark_bg": "rgba(237,234,251,.9)",
+     "font": "Onest 400/500",
+     "size_pt": "16–18",
+     "color_dark_bg": "rgba(237,234,251,.92)",
      "color_light_bg": "#473A6B"
+    },
+    {
+     "role": "Подписи/сноски/подвал",
+     "font": "Onest 400",
+     "size_pt": "13–15",
+     "note": "минимум 13pt — не мельче; сноски внизу слайда читаемы",
+     "color_dark_bg": "#9D95C4"
     },
     {
      "role": "Акцент",
@@ -791,7 +808,8 @@
    "Заголовок формулирует вывод, а не тему",
    "Одна мысль на слайд; лишнее вынесено на следующий",
    "Фон — один из 6 разрешённых режимов (slides.backgrounds); тёмный/светлый чередуются, ≤ 2 подряд на одном фоне",
-   "Шрифты только Onest + JetBrains Mono (встроены); Inter/Bricolage не подмешаны",
+   "Шрифты: Onest + JetBrains Mono (встроены); EN-заголовки допускают Bricolage Grotesque (латиница); Inter/системные не подмешаны",
+   "Логотип со знаком-глифом, не текстом: нет варианта «только начертание ALPHYN» (в т.ч. в подвале)",
    "Данные — в холодных бренд-палитрах (violet + доп. растяжки), без «радужных» дефолтов",
    "Доп. палитра (аква/малиновая/зелёная) — не более одной на слайд и не как основной фон колоды",
    "Один акцент violet в фокусе; lime — только на CTA",
@@ -912,7 +930,7 @@
   ],
   "forbidden": [
    "менять/перерисовывать знак, тени/обводки/поворот на нём",
-   "нефирменные шрифты (Inter, Bricolage) и цвета",
+   "нефирменные шрифты (Inter, Arial, системные) и цвета; Bricolage — только EN-заголовки, не в кириллице/body",
    "тёплые цвета (оранжевый/жёлтый/коричневый)",
    "чужие/партнёрские бренд-цвета как сквозная тема",
    "гексагональный мотив как декор",
@@ -927,6 +945,7 @@
    "checklist": [
     "палитра холодная (violet/indigo/lavender + доп. растяжки); нет тёплых и чужих бренд-цветов",
     "знак не изменён; логотип по фону (тёмный→белый, светлый→индиго); правило одного упоминания",
+    "логотип НЕ в текстовом варианте: любое присутствие лого включает знак-глиф (локап или только-знак); текстовое начертание ALPHYN без знака запрещено (в т.ч. в подвале/колонтитуле)",
     "шрифты только Onest + JetBrains Mono, встроены (@font-face base64 / p:embeddedFontLst)",
     "висячие предлоги приклеены &nbsp; (typography.hanging_words_nbsp)",
     "слайды — slides.checklist; чередование фонов ≤ 2 подряд",
