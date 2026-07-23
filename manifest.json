@@ -3,7 +3,7 @@
  "meta": {
   "brand": "Alphyn",
   "tagline": "Open lakehouse platform — from raw data to agentic AI",
-  "version": "1.0",
+  "version": "1.1",
   "updated": "23.07.2026",
   "brandbook_url": "https://TerryAirwalker.github.io/alphyn-brandbook/",
   "manifest_url": "https://TerryAirwalker.github.io/alphyn-brandbook/manifest.json",
@@ -68,6 +68,9 @@
    "data_visualization",
    "colors",
    "typography"
+  ],
+  "icon_usage": [
+   "slides"
   ],
   "copywriting": [
    "products",
@@ -556,6 +559,10 @@
     {
      "name": "Noise",
      "recipe": "фрактальный шум opacity .04 поверх градиентных фонов — убирает бандинг"
+    },
+    {
+     "name": "Decor-блобы (трио)",
+     "recipe": "ровно три размытых radial-блоба по канонiчным позициям (крупный слева за кадром, верх-право, низ-право) — аналог compositional-приёма ДТС, БЕЗ гексагональной формы (blur-пятна violet/indigo). См. slides.components.decor_blobs."
     }
    ],
    "not_used_on_slides": "Stipple wave (фирменный фон-канвас) — не используется на слайдах, только проектно на сайте/лендингах.",
@@ -566,6 +573,169 @@
     "тёплые/кислотные градиенты",
     "объёмные тени, псевдо-3D"
    ]
+  },
+  "icons": {
+   "source": "lucide-static v1.24.0 (ISC license) — 28 монолиний, перекрашены под токены Alphyn (геометрия путей не меняется)",
+   "stroke": "1.75px, stroke-linecap/linejoin round, viewBox 0 0 24 24",
+   "color": {
+    "dark_bg": "var(--violet-bright) #8A5BF0",
+    "light_bg": "var(--indigo) #22186E"
+   },
+   "list": [
+    {
+     "id": "database",
+     "label": "База данных"
+    },
+    {
+     "id": "layers",
+     "label": "Слои / стек"
+    },
+    {
+     "id": "server",
+     "label": "Сервер / инфраструктура"
+    },
+    {
+     "id": "cloud",
+     "label": "Облако / хранилище"
+    },
+    {
+     "id": "cpu",
+     "label": "Вычисления"
+    },
+    {
+     "id": "brain",
+     "label": "AI / интеллект"
+    },
+    {
+     "id": "bot",
+     "label": "Агент / бот"
+    },
+    {
+     "id": "sparkles",
+     "label": "GenAI / генерация"
+    },
+    {
+     "id": "network",
+     "label": "Сеть / архитектура"
+    },
+    {
+     "id": "git-branch",
+     "label": "Версионирование / lineage"
+    },
+    {
+     "id": "plug",
+     "label": "Интеграция / коннектор"
+    },
+    {
+     "id": "workflow",
+     "label": "Флоу / оркестрация"
+    },
+    {
+     "id": "route",
+     "label": "Путь клиента / маршрут"
+    },
+    {
+     "id": "shield-check",
+     "label": "Governance / безопасность"
+    },
+    {
+     "id": "lock",
+     "label": "Доступ / защита"
+    },
+    {
+     "id": "key",
+     "label": "Ключ / API-доступ"
+    },
+    {
+     "id": "bar-chart-3",
+     "label": "Аналитика / отчётность"
+    },
+    {
+     "id": "pie-chart",
+     "label": "BI / доли"
+    },
+    {
+     "id": "activity",
+     "label": "Мониторинг / real-time"
+    },
+    {
+     "id": "trending-up",
+     "label": "Рост"
+    },
+    {
+     "id": "trending-down",
+     "label": "Снижение"
+    },
+    {
+     "id": "target",
+     "label": "Цель / KPI"
+    },
+    {
+     "id": "users",
+     "label": "Клиенты / команда"
+    },
+    {
+     "id": "message-square",
+     "label": "Коммуникация"
+    },
+    {
+     "id": "clock",
+     "label": "Время / real-time"
+    },
+    {
+     "id": "search",
+     "label": "Поиск / каталог"
+    },
+    {
+     "id": "check",
+     "label": "Статус ок"
+    },
+    {
+     "id": "triangle-alert",
+     "label": "Риск / внимание"
+    }
+   ],
+   "usage": "Только внутри карточек/бейджей как пиктограмма концепта (icon_card, продуктовые/фиче-карточки). НЕ как самостоятельный декор фона (замощение, крупный ватермарк). Набор закрытый — новые имена добавлять только тем же пакетом (lucide-static) и тем же stroke-style."
+  },
+  "components": {
+   "step_badge": {
+    "name": "Круглый бейдж с номером",
+    "recipe": "circle, background var(--grad-mark) (lavender→violet-bright→violet), номер Onest 800 белым, мягкий box-shadow violet",
+    "replaces": "гексагональный бейдж ДТС — сознательно нейтральная форма (круг), не другой геометрический фирменный знак"
+   },
+   "process_chain": {
+    "name": "Цепочка шагов",
+    "recipe": "step_badge, соединённые тонкой линией line-2 между узлами, подпись под каждым узлом"
+   },
+   "stat_block": {
+    "name": "Стат-плашка",
+    "recipe": "равноширинные плашки ink-2 с бордером line, крупная цифра Onest 800 (цвет по семантике), подпись muted снизу — в ряд (flex/grid, НЕ разной ширины)"
+   },
+   "before_after_table": {
+    "name": "Было → стало",
+    "recipe": "подпись + приглушённое исходное значение + стрелка + изменённое значение в pill-подсветке (rgba(52,211,153,.14) текст positive для улучшения, нейтральная подсветка иначе)"
+   },
+   "hub_diagram": {
+    "name": "Hub-диаграмма",
+    "recipe": "центральный круглый узел grad-mark + сателлиты по кругу (круглая иконка-контейнер rgba(138,91,240,.14) + подпись), тонкие линии-спицы line-2 — без гексагональных узлов"
+   },
+   "layered_pipeline": {
+    "name": "Слоистый pipeline",
+    "recipe": "N колонок с цветным заголовком (indigo→violet→violet-bright по глубине слоя) и рядами-карточками внутри, стрелки muted между колонками — для архитектур/схем"
+   },
+   "icon_card": {
+    "name": "Карточка с иконкой",
+    "recipe": "иконка (см. icons) в rounded-square 40×40 rgba(138,91,240,.12) + заголовок + текст — для продуктовых/фиче-карточек"
+   },
+   "ghost_section_number": {
+    "name": "Цифра-раздел (ghost number)",
+    "recipe": "крупная (≈64px) полупрозрачная цифра Onest 800 в правом верхнем углу контентных слайдов — номер РАЗДЕЛА колоды (не номер слайда), rgba(184,171,244,.10) на тёмном"
+   },
+   "decor_blobs": {
+    "name": "Decor-блобы (трио)",
+    "recipe": "ровно 3 блоба по канонiчным позициям (крупный слева за кадром, верх-право, низ-право), blur 50–60px, radial-gradient violet/indigo, opacity .6–.8 — замена гексагональных блобов ДТС при сохранении той же композиционной логики"
+   },
+   "note": "Компонентная система — аналог ДТС (нумерованные узлы/стат-блоки/было-стало/hub-диаграммы/слоистые схемы/decor-блобы по углам), но без гексагона: везде круг или blur-пятно вместо шестиугольника. Не изобретать новые формы узлов/бейджей."
   },
   "types": [
    {
@@ -628,7 +798,10 @@
    "Подвал с начертанием ALPHYN и alphyn.ai на месте",
    "Контраст текста к фону ≥ 4.5:1",
    "Нет гексагонов, стоковых фонов, тёплых градиентов, замощения паттерном",
-   "Название Alphyn — не более 1 раза (правило одного упоминания)"
+   "Название Alphyn — не более 1 раза (правило одного упоминания)",
+   "Нумерованные узлы/шаги — круглый градиентный бейдж (grad-mark), не гексагон и не квадрат (slides.components.step_badge)",
+   "Иконки — только из библиотеки (slides.icons, 28 шт.), не примешаны сторонние наборы",
+   "Decor-блобы — не более трёх, по канонiчным позициям (slides.components.decor_blobs)"
   ]
  },
  "data_visualization": {
