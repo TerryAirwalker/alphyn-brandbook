@@ -1,0 +1,867 @@
+{
+ "$schema_note": "Машиночитаемый источник правды по фирменному стилю Alphyn для ЛЮБЫХ материалов (слайды, документы, веб, соцсети, графика, инфографика). Файл маленький — грузи целиком. Не выдумывай цвета/шрифты/формы/тексты — бери отсюда и из брендбука.",
+ "meta": {
+  "brand": "Alphyn",
+  "tagline": "Open lakehouse platform — from raw data to agentic AI",
+  "version": "1.0",
+  "updated": "23.07.2026",
+  "brandbook_url": "https://TerryAirwalker.github.io/alphyn-brandbook/",
+  "manifest_url": "https://TerryAirwalker.github.io/alphyn-brandbook/manifest.json",
+  "assets_repo": "https://github.com/TerryAirwalker/alphyn-brandbook",
+  "website": "https://alphyn.ai",
+  "skill": "https://TerryAirwalker.github.io/alphyn-brandbook/skill/alphyn-design/SKILL.md",
+  "skill_raw": "https://raw.githubusercontent.com/TerryAirwalker/alphyn-brandbook/main/skill/alphyn-design/SKILL.md",
+  "self_serve": true,
+  "self_serve_note": "У бренда нет отдельного согласующего маркетинга: агент работает самостоятельно по этому манифесту и брендбуку. Публичные материалы (сайт/лендинги) можно готовить и отдавать как макет/черновик; фактические тексты и цифры — только из descriptions/сайта alphyn.ai.",
+  "character": "dark-premium · type-forward · холодная violet/indigo гамма"
+ },
+ "how_agent_should_use": [
+  "Это источник правды по фирменному стилю Alphyn для ЛЮБЫХ материалов (слайды, документы, веб, соцсети, графика, инфографика).",
+  "Начни с entrypoint, затем по routing определи, какие ключи читать под свою задачу.",
+  "Не выдумывай цвета, шрифты, формы и тексты — бери из манифеста. Человекочитаемый референс — брендбук (meta.brandbook_url).",
+  "Тёмная тема — основная, светлая — равноправна (особенно презентации/печать). Слайды: чередуй фоны (не более 2 подряд).",
+  "Соблюдай rules_global.forbidden. Тёплые и чужие бренд-цвета запрещены. Проверяй результат по checklist'ам (self_check_before_delivery)."
+ ],
+ "entrypoint": {
+  "step1": "Загрузи весь JSON в контекст (он маленький).",
+  "step2": "Прочитай $schema_note и how_agent_should_use.",
+  "step3": "Определи тип задачи и возьми список ключей из routing.",
+  "step4": "Собери материал, используя ТОЛЬКО токены/правила из этих ключей; шрифты Onest/JetBrains Mono встраивай.",
+  "step5": "Проверь: rules_global.forbidden; слайды — slides.checklist; графики/схемы — data_visualization; тексты — products/descriptions."
+ },
+ "routing": {
+  "presentation_slide": [
+   "slides",
+   "colors",
+   "typography",
+   "logo",
+   "layout"
+  ],
+  "document_pdf_docx": [
+   "typography",
+   "colors",
+   "logo",
+   "layout",
+   "rules_global"
+  ],
+  "web_page_or_landing": [
+   "colors",
+   "typography",
+   "gradients",
+   "effects",
+   "logo",
+   "layout"
+  ],
+  "social_or_banner": [
+   "colors",
+   "typography",
+   "gradients",
+   "effects",
+   "logo"
+  ],
+  "chart_or_infographic": [
+   "data_visualization",
+   "colors",
+   "typography"
+  ],
+  "diagram_or_flowchart": [
+   "data_visualization",
+   "colors",
+   "typography"
+  ],
+  "copywriting": [
+   "products",
+   "descriptions"
+  ],
+  "get_assets": [
+   "assets"
+  ],
+  "any_other_material": [
+   "colors",
+   "typography",
+   "logo",
+   "gradients",
+   "layout",
+   "rules_global"
+  ],
+  "copywriting_note": "reference-only: справка из products/descriptions + edit/proofread присланного текста; не сочинять с нуля, не выдумывать цифры (тон голоса — инженерный, факт и цифра вместо эпитета)."
+ },
+ "colors": {
+  "core": [
+   {
+    "name": "Primary violet",
+    "hex": "#6E40D7",
+    "role": "главный бренд-цвет, кнопки-акценты, плашки, свечения, watermark"
+   },
+   {
+    "name": "Violet bright",
+    "hex": "#8A5BF0",
+    "role": "hover, свечения, верх mark-градиента, глифы-буллеты"
+   },
+   {
+    "name": "Indigo",
+    "hex": "#22186E",
+    "role": "глубокий бренд-индиго из логотипа, тёмный полюс градиентов"
+   },
+   {
+    "name": "Lavender",
+    "hex": "#B8ABF4",
+    "role": "вторичный акцент, kicker-текст, тонкие линии, моно-лейблы"
+   },
+   {
+    "name": "Ink",
+    "hex": "#08060F",
+    "role": "основной канвас, near-black"
+   },
+   {
+    "name": "Ink-2",
+    "hex": "#0E0A1C",
+    "role": "приподнятые поверхности, карточки"
+   }
+  ],
+  "text_dark_theme": [
+   {
+    "name": "Text",
+    "hex": "#EDEAFB",
+    "role": "основной текст"
+   },
+   {
+    "name": "Text soft",
+    "hex": "#C9C2E6",
+    "role": "сабхеды, body на тёмном"
+   },
+   {
+    "name": "Muted",
+    "hex": "#9D95C4",
+    "role": "вторичный текст, подписи"
+   },
+   {
+    "name": "Line",
+    "hex": "rgba(184,171,244,.10)",
+    "role": "хэйрлайны, бордеры, blueprint-сетка"
+   }
+  ],
+  "signals": [
+   {
+    "name": "Lime (CTA)",
+    "hex": "#65FE08",
+    "role": "заливка primary-кнопок (текст на ней — indigo). Единственный «горячий» неон — только CTA"
+   },
+   {
+    "name": "Positive",
+    "hex": "#34D399",
+    "role": "семантика «рост / проверено / гарантия». Точечно, в данных и статусах"
+   },
+   {
+    "name": "Negative",
+    "hex": "#F0436B",
+    "role": "семантика «ошибка / было / антипаттерн». Точечно, в данных и ✕-карточках"
+   },
+   {
+    "name": "Aqua",
+    "hex": "#1FA8BE",
+    "role": "холодный вторичный акцент для инфографики и выделений (не бренд-цвет)"
+   }
+  ],
+  "extended_palettes": {
+   "usage": "Только для инфографики, диаграмм и презентаций, когда бренд-ядра мало. Не для логотипа/заголовков/крупных фоновых плашек. Не более 2 доп. палитр в одном макете. Внутри палитры — строго от тёмного к светлому. Холодная гамма.",
+   "ramps": {
+    "violet": [
+     "#160E3E",
+     "#22186E",
+     "#4A2E9E",
+     "#6E40D7",
+     "#8A5BF0",
+     "#B8ABF4"
+    ],
+    "raspberry": [
+     "#360C20",
+     "#661238",
+     "#9C1C57",
+     "#CE2A7B",
+     "#E85F9F",
+     "#F5A8CB"
+    ],
+    "neutral": [
+     "#0A0913",
+     "#171426",
+     "#2A2740",
+     "#454063",
+     "#6E6893",
+     "#A8A2C8"
+    ],
+    "aqua": [
+     "#062E38",
+     "#0B4F5E",
+     "#117A8C",
+     "#1FA8BE",
+     "#4FCEDF",
+     "#A6EAF2"
+    ],
+    "green": [
+     "#0C3D2E",
+     "#12633F",
+     "#1B8F5B",
+     "#34D399",
+     "#6FE3B8",
+     "#B5F1DA"
+    ]
+   },
+   "ramp_roles": {
+    "violet": "основной фирменный — фоны, заливки секций, плашки, свечения",
+    "raspberry": "холодный малиново-фуксиевый акцент — категории данных, контраст к violet",
+    "neutral": "графит/сланец — текст, сетки, разделители, нейтральные фоны",
+    "aqua": "холодный вторичный акцент — инфографика, выделения, переходы",
+    "green": "на основе positive — статусы, рост, позитивные значения"
+   }
+  },
+  "light_theme": {
+   "canvas": "#FFFFFF / #FBF9FE",
+   "cover_gradient": "linear-gradient(112deg,#1A1147,#241A72,#4A2BA0,#6E40D7,#8257E4)",
+   "text_main": "#181030",
+   "text_body": "#473A6B",
+   "text_muted": "#6E6498",
+   "heading": "#22186E",
+   "accent": "#6E40D7",
+   "violet_deep": "#4E2BA6",
+   "card": "linear-gradient(180deg,#FBF9FE,#F3EEFC), border rgba(110,64,215,.18)",
+   "text_accent": "linear-gradient(120deg,#6E40D7,#8A5BF0,#A883F5)",
+   "note": "Бренд-ядро и акценты не меняются между темами; различаются только канвас, текст, поверхности и линии."
+  },
+  "forbidden": [
+   "оранжевый",
+   "жёлтый",
+   "коричневый",
+   "красный вне семантики negative",
+   "любые тёплые цвета вне палитры",
+   "чужие/партнёрские бренд-цвета как сквозная тема",
+   "«светофор» red-yellow-green для нейтральных данных"
+  ]
+ },
+ "typography": {
+  "fonts": {
+   "heading": {
+    "family": "Onest",
+    "use": "заголовки, акцентные надписи",
+    "weights": [
+     700,
+     800
+    ]
+   },
+   "body": {
+    "family": "Onest",
+    "use": "основной текст, подписи, UI",
+    "weights": [
+     400,
+     500,
+     600
+    ]
+   },
+   "mono": {
+    "family": "JetBrains Mono",
+    "use": "код, hex, kicker-лейблы, шапки таблиц, тех. значения",
+    "weights": [
+     400,
+     500
+    ]
+   }
+  },
+  "single_family_note": "Одна текстовая гарнитура на всё — Onest (латиница и кириллица в едином ритме). Иерархия строится начертанием (800→700→600→400) и кеглем, а не сменой шрифта.",
+  "forbidden_fonts": [
+   "Inter",
+   "Bricolage",
+   "Arial",
+   "Calibri",
+   "Times New Roman",
+   "любые системные/сторонние"
+  ],
+  "embed": "Onest и JetBrains Mono ВСТРАИВАТЬ в артефакты (@font-face data:font base64 для HTML; p:embeddedFontLst для .pptx). Обе OFL — лицензия не нужна.",
+  "hierarchy_desktop": [
+   {
+    "level": "H1",
+    "size_px": "76–80",
+    "font": "Onest 800",
+    "tracking_lh": "−0.03em / .98"
+   },
+   {
+    "level": "H2",
+    "size_px": "44–52",
+    "font": "Onest 800",
+    "tracking_lh": "−0.02em / 1.02"
+   },
+   {
+    "level": "H3",
+    "size_px": "22–26",
+    "font": "Onest 700",
+    "tracking_lh": "−0.015em / 1.1"
+   },
+   {
+    "level": "Stat/метрика",
+    "size_px": "30–46",
+    "font": "Onest 800",
+    "tracking_lh": "−0.02em / 1"
+   },
+   {
+    "level": "Lead",
+    "size_px": "17–18",
+    "font": "Onest 400",
+    "tracking_lh": "0 / 1.55"
+   },
+   {
+    "level": "Body",
+    "size_px": "14–16",
+    "font": "Onest 400",
+    "tracking_lh": "0 / 1.55"
+   },
+   {
+    "level": "Caption",
+    "size_px": "12–13",
+    "font": "Onest 500",
+    "tracking_lh": "0 / 1.4"
+   },
+   {
+    "level": "Kicker/mono caps",
+    "size_px": "11–12",
+    "font": "JetBrains Mono 500",
+    "tracking_lh": "+0.08…0.16em / 1.4 · ПРОПИСНЫЕ"
+   }
+  ],
+  "on_slides": {
+   "rules": [
+    "не более 3 уровней текста на слайде",
+    "≤ 4 пунктов буллетов на слайд",
+    "заголовок формулирует вывод, а не тему",
+    "одинаковый размер для одного уровня по всей презентации"
+   ],
+   "roles": [
+    {
+     "role": "Заголовок обложки",
+     "font": "Onest 800",
+     "size_pt": "36–48"
+    },
+    {
+     "role": "Заголовок слайда",
+     "font": "Onest 800",
+     "size_pt": "28–40",
+     "color_dark_bg": "#EDEAFB",
+     "color_light_bg": "#22186E"
+    },
+    {
+     "role": "Подзаголовок/lead",
+     "font": "Onest 400/500",
+     "size_pt": "16–20",
+     "color_dark_bg": "#C9C2E6",
+     "color_light_bg": "#473A6B"
+    },
+    {
+     "role": "Основной текст/буллеты",
+     "font": "Onest 400",
+     "size_pt": "14–16",
+     "color_dark_bg": "rgba(237,234,251,.9)",
+     "color_light_bg": "#473A6B"
+    },
+    {
+     "role": "Акцент",
+     "font": "Onest 700",
+     "size_pt": "=роль",
+     "color_dark_bg": "#8A5BF0",
+     "color_light_bg": "#6E40D7"
+    },
+    {
+     "role": "Kicker/лейбл",
+     "font": "JetBrains Mono 500",
+     "size_pt": "11–12",
+     "color_dark_bg": "#B8ABF4",
+     "color_light_bg": "#6E40D7"
+    }
+   ]
+  },
+  "hanging_words_nbsp": "Висячие предлоги: НЕ оставлять в конце строки короткие служебные слова (предлоги/союзы/частицы 1–3 букв: в,во,на,за,по,из,от,к,с,о,у,под,при,без,для; и,а,но,да,или; не,ни,же,бы,ли) — приклеивать к следующему неразрывным пробелом (&nbsp;/U+00A0). Также не разрывать: тире (nbsp перед тире), число+единицу (3 ПБ, 2026 год), инициалы+фамилию, сокращения (и т. д.). Применять ко всему русскому тексту перед рендером.",
+  "tone_of_voice": "Инженерно, точно, без превосходных степеней и маркетингового шума. Факт и цифра вместо эпитета («в 2–5 раз быстрее», «3 ПБ+ в продакшене»)."
+ },
+ "logo": {
+  "variants": [
+   {
+    "id": "lockup",
+    "name": "Локап: знак + начертание ALPHYN",
+    "default": true
+   },
+   {
+    "id": "symbol",
+    "name": "Только знак-глиф Alphyn"
+   }
+  ],
+  "forbidden_variants": [
+   "только начертание ALPHYN без знака"
+  ],
+  "treatments": {
+   "white": "на тёмном/брендовом фоне — белое начертание, знак белый или градиентный",
+   "gradient": "знак заливается mark-градиентом (#B8ABF4→#8A5BF0→#6E40D7); ведущий приём на тёмном",
+   "indigo": "на светлом фоне — индиго #22186E начертание, знак градиентный/индиго",
+   "outline": "контурный знак (stroke lavender, без заливки) — для схем/внешних систем"
+  },
+  "color_by_bg": {
+   "dark_bg": "белое начертание + градиентный/белый знак",
+   "light_bg": "индиго #22186E начертание + градиентный/индиго знак"
+  },
+  "roles_in_system": {
+   "orbit": "знак в светящемся кольце с вращающейся conic-подсветкой — ведущий приём hero",
+   "watermark": "крупный полупрозрачный знак-подложка на секциях/обложках",
+   "outline": "контурный знак — схемы, иконки-контейнеры, внешние системы"
+  },
+  "on_slides": "Полный локап — только на обложке и финальном слайде «Контакты». На рабочих слайдах — знак в углу или подвал с начертанием ALPHYN + alphyn.ai.",
+  "one_mention_rule": "На одном слайде/материале название Alphyn — не более 1 раза (обычно это логотип). Обложка: локап = единственное упоминание (не добавлять дублирующий заголовок «Alphyn», сайт, «брендбук v…»).",
+  "clear_zone": "свободная зона = высота знака (X) со всех сторон",
+  "forbidden": [
+   "перерисовывать/деформировать знак",
+   "менять пропорции/цвет знака",
+   "тени/обводки/эффекты на знаке",
+   "поворот",
+   "нефирменные цвета",
+   "гексагональный мотив (выведен из айдентики полностью)",
+   "текстовое начертание ALPHYN без знака"
+  ],
+  "note_for_agents": "Знак — система построена вокруг него, не перерисовывать. Продукты не имеют собственных логотипов: общий знак Alphyn + имя (Onest 600–700), различие — только акцентный оттенок в пределах violet-гаммы."
+ },
+ "gradients": {
+  "list": [
+   {
+    "name": "Mark (знак)",
+    "css": "linear-gradient(180deg,#B8ABF4,#8A5BF0,#6E40D7)",
+    "use": "заливка знака и watermark"
+   },
+   {
+    "name": "Accent / Guarantee",
+    "css": "linear-gradient(115deg,#160E3E,#2A1D70,#6E40D7)",
+    "use": "акцентные секции, тёмные плашки"
+   },
+   {
+    "name": "Text accent (тёмн.)",
+    "css": "linear-gradient(180deg,#FFFFFF,#B8ABF4)",
+    "use": "заголовки-акценты (background-clip:text)"
+   },
+   {
+    "name": "Light hero cover",
+    "css": "linear-gradient(112deg,#1A1147,#241A72,#4A2BA0,#6E40D7,#8257E4)",
+    "use": "обложка hero светлой версии"
+   }
+  ],
+  "note": "Text accent (#fff→#B8ABF4 через background-clip:text) — только на ключевых словах, не на всём тексте."
+ },
+ "effects": {
+  "signature": [
+   {
+    "name": "Aurora glow",
+    "recipe": "размытые radial-пятна violet/indigo (blur 60–72px), медленный дрейф 16–24s; одно свечение на слайд, ближе к краю"
+   },
+   {
+    "name": "Blueprint-сетка",
+    "recipe": "хэйрлайн-грид 64×64px, line rgba(184,171,244,.10), радиальная маска затухания сверху"
+   },
+   {
+    "name": "Mark glow / orbit",
+    "recipe": "знак в светящемся кольце + вращающаяся conic-подсветка (spin 14s/22s reverse)"
+   },
+   {
+    "name": "Card hover",
+    "recipe": "translateY(−3…4px) + подсветка бордера + верхняя градиент-кромка, 0.15–0.22s"
+   },
+   {
+    "name": "Noise",
+    "recipe": "фрактальный шум opacity .04 поверх градиентов — убирает бандинг"
+   }
+  ],
+  "reduced_motion": "все анимации гасятся при prefers-reduced-motion.",
+  "forbidden": [
+   "стоковые «облака»",
+   "кислотные градиенты",
+   "жёсткие drop-shadow под данными",
+   "замощение паттерном"
+  ]
+ },
+ "slides": {
+  "canvas": {
+   "ratio": "16:9",
+   "orientation": "только горизонтальная",
+   "format": ".pptx или редактируемый HTML"
+  },
+  "themes": {
+   "dark": "базовый фон презентации и сайта",
+   "light": "равноправный вариант — печать, документы под шаблон заказчика, проекторы с засветкой, чередование фонов"
+  },
+  "backgrounds": [
+   {
+    "id": "aurora_ink",
+    "name": "Aurora на ink",
+    "base": "#08060F",
+    "text": "#EDEAFB",
+    "use": "обложка, ключевые контентные слайды",
+    "decor": "radial violet-свечение (blur ~70px, opacity ≤ .55) в одном углу"
+   },
+   {
+    "id": "hairline_grid",
+    "name": "Hairline-сетка",
+    "base": "#0E0A1C",
+    "text": "#EDEAFB",
+    "use": "схемы, архитектура, технический контент",
+    "decor": "тонкая сетка line rgba(184,171,244,.10)"
+   },
+   {
+    "id": "gradient_section",
+    "name": "Градиентная секция",
+    "base": "grad-accent indigo→violet",
+    "text": "#FFFFFF",
+    "use": "титул раздела, акцентный statement, финал/CTA"
+   },
+   {
+    "id": "light",
+    "name": "Светлый",
+    "base": "#FFFFFF / #FBF9FE",
+    "text": "#22186E / #473A6B",
+    "use": "равноправный светлый слайд; плоские заливки, без свечения"
+   }
+  ],
+  "background_rotation": "Не более 2 слайдов подряд на одном фоне — далее переключай (тёмный ↔ светлый). Пример ритма: тёмный·тёмный·светлый·тёмный·светлый·светлый. Связанные слайды (одна тема/серия) держат общий фон.",
+  "types": [
+   {
+    "n": 1,
+    "name": "Обложка",
+    "recipe": "знак + крупный заголовок, aurora-фон"
+   },
+   {
+    "n": 2,
+    "name": "Разделитель",
+    "recipe": "градиентная секция, номер + название раздела"
+   },
+   {
+    "n": 3,
+    "name": "Statement",
+    "recipe": "один тезис по центру, максимум воздуха"
+   },
+   {
+    "n": 4,
+    "name": "Контент",
+    "recipe": "заголовок-вывод + маркированные пункты (≤ 4)"
+   },
+   {
+    "n": 5,
+    "name": "Данные",
+    "recipe": "крупная цифра (Onest 800) + один график в violet-гамме"
+   },
+   {
+    "n": 6,
+    "name": "Сравнение",
+    "recipe": "было/стало — negative слева, positive справа"
+   },
+   {
+    "n": 7,
+    "name": "Цитата",
+    "recipe": "крупная кавычка, короткая мысль"
+   },
+   {
+    "n": 8,
+    "name": "Финал / CTA",
+    "recipe": "градиент + lime-кнопка с адресом alphyn.ai"
+   }
+  ],
+  "grid": {
+   "margins": "≈ 5–6% ширины по периметру, единые для всей колоды",
+   "title_zone": "верхняя ⅕, Onest 800, 28–40pt, вывод в 1–2 строки",
+   "content": "тело Onest 16–20pt; ≤ 4 пунктов или один визуал",
+   "footer": "начертание ALPHYN слева, alphyn.ai + номер справа, muted",
+   "accent": "один violet-элемент в фокусе; lime — только на CTA"
+  },
+  "editability": "Слайды собираются из HTML-рецептов этого брендбука. Режим A (по умолчанию, .pptx) — РЕДАКТИРУЕМЫЙ: декор (фон/aurora/сетка/градиент/знак/подвал) фоновой картинкой full-bleed, весь ТЕКСТ — живые надписи python-pptx поверх; шрифты Onest/JetBrains Mono ВСТРОЕНЫ в файл. Полностью запечённый PNG-текст — только по явной просьбе («сделай картинкой»/постер). Режим B — редактируемый HTML-слайд со встроенными @font-face. Сверять рендером (HTML→PNG или LibreOffice→PDF→PNG).",
+  "checklist": [
+   "Заголовок формулирует вывод, а не тему",
+   "Одна мысль на слайд; лишнее вынесено на следующий",
+   "Фон по ритму колоды: тёмный/светлый чередуются, ≤ 2 подряд на одном фоне",
+   "Шрифты только Onest + JetBrains Mono (встроены); Inter/Bricolage не подмешаны",
+   "Данные — в холодных бренд-палитрах (violet + доп. растяжки), без «радужных» дефолтов",
+   "Один акцент violet в фокусе; lime — только на CTA",
+   "Подвал с начертанием ALPHYN и alphyn.ai на месте",
+   "Контраст текста к фону ≥ 4.5:1",
+   "Нет гексагонов, стоковых фонов, тёплых градиентов",
+   "Название Alphyn — не более 1 раза (правило одного упоминания)"
+  ]
+ },
+ "data_visualization": {
+  "ref_brandbook_tab": "Оформление графиков и схем",
+  "principles": [
+   "фон ink #08060F / ink-2 #0E0A1C (данные — часть бренда, тёмный канвас)",
+   "оси/деления — muted #9D95C4; сетка line rgba(184,171,244,.10), только горизонтальные линии",
+   "один цвет на ряд данных, порядок от яркого #8A5BF0 к глубокому #22186E",
+   "холодные бренд-палитры; тёплые и «радужные» дефолты запрещены",
+   "negative #F0436B — только отрицательные отклонения; positive #34D399 — только рост",
+   "минимум декора: без 3D, теней-подложек, объёмных секторов"
+  ],
+  "series_tiers": [
+   {
+    "range": "1–3 ряда",
+    "palette": "монохромная растяжка violet",
+    "colors": [
+     "#8A5BF0",
+     "#6E40D7",
+     "#B8ABF4"
+    ]
+   },
+   {
+    "range": "4–6 рядов",
+    "palette": "violet + аква (две холодные семьи)",
+    "colors": [
+     "#6E40D7",
+     "#8A5BF0",
+     "#B8ABF4",
+     "#117A8C",
+     "#1FA8BE",
+     "#4FCEDF"
+    ]
+   },
+   {
+    "range": "7–10 рядов",
+    "palette": "violet + малиновая (контраст групп)",
+    "colors": [
+     "#22186E",
+     "#4A2E9E",
+     "#6E40D7",
+     "#8A5BF0",
+     "#B8ABF4",
+     "#661238",
+     "#9C1C57",
+     "#CE2A7B",
+     "#E85F9F",
+     "#F5A8CB"
+    ]
+   },
+   {
+    "range": "позитив/негатив",
+    "palette": "зелёная гамма + negative",
+    "colors": [
+     "#1B8F5B",
+     "#34D399",
+     "#6FE3B8",
+     "#1FA8BE",
+     "#F0436B"
+    ]
+   }
+  ],
+  "elements": {
+   "single_series": "violet #6E40D7 (или вертикальный градиент #8A5BF0→#6E40D7)",
+   "axes": "muted #9D95C4",
+   "grid": "line rgba(184,171,244,.10)",
+   "value_labels": "text #EDEAFB / soft #C9C2E6",
+   "positive": "#34D399 (семантика «рост/хорошо»)",
+   "negative": "#F0436B (только семантика «падение/плохо»)",
+   "max_families_per_chart": 2
+  },
+  "charts": {
+   "bar": "один ряд — violet-bright с вертикальным градиентом, углы r=4",
+   "line": "линия violet 2px, узлы lavender, area-заливка растворяется книзу",
+   "donut": "предпочитать кольцевую; сектора по растяжке violet по часовой (яркий→тёмный); центр — ключевая цифра Onest 800; ≤ 5 секторов"
+  },
+  "schemes_flowcharts": {
+   "semantics": "цвет = смысл: глубина этапа (indigo вход → violet ядро → lavender выход)",
+   "blocks": {
+    "input_source": "indigo #22186E",
+    "process_core": "violet #6E40D7",
+    "output": "violet-bright #8A5BF0 → lavender #B8ABF4",
+    "parallel_branch": "другая холодная семья — аква #1FA8BE или малиновая #CE2A7B",
+    "external_system": "контурный блок (stroke lavender, без заливки) — партнёрские/внешние системы"
+   },
+   "links": "lavender #B8ABF4, толщина 1–1.5px, тонкие однотонные стрелки без теней/3D",
+   "forbidden": [
+    "«светофор» из тёплых/случайных цветов",
+    "объёмные тени и псевдо-3D у блоков",
+    "разноцветные жирные стрелки (цвет без семантики)"
+   ]
+  },
+  "tables": {
+   "style": "без вертикальных линий, только тонкие горизонтальные разделители line rgba(184,171,244,.10)",
+   "header": "JetBrains Mono, uppercase, lavender, +.08em",
+   "positive_values": "#34D399",
+   "row_hover": "rgba(184,171,244,.03)"
+  }
+ },
+ "rules_global": {
+  "do": [
+   "использовать готовые токены (этот манифест) и рецепты брендбука",
+   "тёмная тема — основная, светлая — равноправна (презентации/печать)",
+   "чередовать фоны слайдов (≤ 2 подряд)",
+   "Название «Alphyn» — максимум 1 раз на слайде/материале (обычно логотип)",
+   "цифры/статистику выравнивать равными колонками (grid repeat(N,1fr))",
+   "встраивать шрифты Onest/JetBrains Mono в артефакты"
+  ],
+  "forbidden": [
+   "менять/перерисовывать знак, тени/обводки/поворот на нём",
+   "нефирменные шрифты (Inter, Bricolage) и цвета",
+   "тёплые цвета (оранжевый/жёлтый/коричневый)",
+   "чужие/партнёрские бренд-цвета как сквозная тема",
+   "гексагональный мотив как декор",
+   "суб-бренды продуктов (отдельные логотипы/палитры/шрифты)",
+   "менять по смыслу описания продуктов; приводить цифры, которых нет в descriptions/на сайте",
+   "текстовое начертание ALPHYN без знака"
+  ],
+  "public_field": "Бренд self-serve: у Alphyn нет отдельного согласующего маркетинга. Агент готовит материалы самостоятельно по манифесту и брендбуку, включая макеты сайтов/лендингов. Публичные материалы отдавать как макет/черновик; фактические тексты и цифры брать только из products/descriptions и alphyn.ai.",
+  "texts": "Агент: выдаёт справку из products/descriptions и редактирует/вычитывает присланный пользователем текст (грамотность, оформление, висячие предлоги). Не сочиняет с нуля без ввода пользователя и не приводит цифры/значения, которых нет в описаниях. Тон — инженерный, факт и цифра вместо эпитета.",
+  "self_check_before_delivery": {
+   "mandatory": "ОБЯЗАТЕЛЬНО: перед показом пользователю отрендерить результат (скриншот PNG) и сверить ГЛАЗАМИ с требованиями брендбука. Не показывать неотсмотренный результат; если пункт не проходит — исправить, пере-рендерить и сверить снова.",
+   "checklist": [
+    "палитра холодная (violet/indigo/lavender + доп. растяжки); нет тёплых и чужих бренд-цветов",
+    "знак не изменён; логотип по фону (тёмный→белый, светлый→индиго); правило одного упоминания",
+    "шрифты только Onest + JetBrains Mono, встроены (@font-face base64 / p:embeddedFontLst)",
+    "висячие предлоги приклеены &nbsp; (typography.hanging_words_nbsp)",
+    "слайды — slides.checklist; чередование фонов ≤ 2 подряд",
+    "графики/схемы — data_visualization (холодные растяжки, семантика цвета, минимум декора)",
+    "тексты о продуктах — только из products/descriptions; цифры не выдуманы",
+    "нет гексагонов, стоковых фонов, кислотных/тёплых градиентов"
+   ]
+  }
+ },
+ "products": {
+  "company": {
+   "name": "Alphyn",
+   "tagline_en": "Open lakehouse platform — from raw data to agentic AI",
+   "summary": "Alphyn — открытая lakehouse-платформа корпоративного масштаба: от сырых данных до агентного AI, на открытых стандартах (Apache Iceberg v2, Parquet, S3, Kubernetes) и без vendor lock-in.",
+   "facts": [
+    "3 ПБ+ в продакшене",
+    "50+ проектов",
+    "200+ инженеров",
+    "2–5x быстрее legacy MPP",
+    "on-prem / cloud / air-gapped"
+   ],
+   "naming": "Официальные названия с префиксом Alphyn; аббревиатуры (DG, ASM, DR, RDM) — только после первого полного упоминания.",
+   "note": "Продукты — не суб-бренды: функциональные модули единого бренда Alphyn, различие — только акцентный оттенок в пределах violet-гаммы."
+  },
+  "list": [
+   {
+    "name": "Alphyn Lakehouse",
+    "short": "Lakehouse",
+    "tagline_en": "Open Lakehouse Platform for Enterprise Scale",
+    "accent": "#6E40D7",
+    "capabilities": [
+     "Apache Iceberg Foundation",
+     "Unified Analytics",
+     "Multi-engine SQL",
+     "Real-time streaming"
+    ]
+   },
+   {
+    "name": "Alphyn AI Studio",
+    "short": "AI Studio",
+    "tagline_en": "Build Better AI with a Data-Centric Approach",
+    "accent": "#8A5BF0",
+    "capabilities": [
+     "Model Development",
+     "MLOps Automation",
+     "Distributed training",
+     "Arrow-based connectivity"
+    ]
+   },
+   {
+    "name": "Alphyn Data Governance",
+    "short": "Data Governance",
+    "tagline_en": "Enterprise-Grade Security and Compliance",
+    "accent": "#5648D8",
+    "capabilities": [
+     "Access Control (RBAC / ABAC)",
+     "Data Lineage",
+     "Row-level security",
+     "Audit logging"
+    ]
+   },
+   {
+    "name": "Alphyn Marketing Hub",
+    "short": "Marketing Hub",
+    "tagline_en": "Real-Time Customer Data Platform",
+    "accent": "#9A5CFF",
+    "capabilities": [
+     "Customer 360",
+     "AI Segmentation",
+     "Personalization",
+     "Campaign orchestration"
+    ]
+   },
+   {
+    "name": "Alphyn Decisioning Flow",
+    "short": "Decisioning Flow",
+    "tagline_en": "Intelligent Workflow Automation",
+    "accent": "#7C4DD6",
+    "capabilities": [
+     "Visual Workflow Builder",
+     "Decision Engine",
+     "No-code logic",
+     "Real-time decisions"
+    ]
+   }
+  ],
+  "modules": [
+   {
+    "name": "Alphyn ASM",
+    "desc": "стриминг/CDC (Flink)"
+   },
+   {
+    "name": "Alphyn DR",
+    "desc": "пакетная миграция"
+   },
+   {
+    "name": "Alphyn RDM",
+    "desc": "управление мастер-данными"
+   }
+  ],
+  "descriptions_source": "chapter «Описания» (descr) в брендбуке — EN-теглайны дословно с alphyn.ai + RU в трёх длинах (строка/абзац/развёрнуто) + чипы возможностей."
+ },
+ "layout": {
+  "grid_base_px": 8,
+  "radius_px": {
+   "small": 4,
+   "card": 12,
+   "pill": 999
+  },
+  "content_max_width_px": 1100,
+  "margins": {
+   "slides": "5–6% ширины",
+   "documents": "≥18–20 мм",
+   "web": "контент ≤ 1100px"
+  },
+  "stats_blocks": "Блоки цифр — РАВНЫЕ колонки фиксированной ширины (grid repeat(N,1fr)); одинаковые интервалы независимо от длины подписей. Не использовать flex-gap при разной ширине элементов.",
+  "air_rule": "Правило воздуха: если слайд/секция «тесные» — делить. Пустота работает на премиальность (type-forward)."
+ },
+ "assets": {
+  "repo": "https://github.com/TerryAirwalker/alphyn-brandbook",
+  "brandbook_html": "https://TerryAirwalker.github.io/alphyn-brandbook/",
+  "generator": "генератор брендбука (build.py + chapters.py + fonts-embedded.css + assets/logo) — источник истины; HTML собирается из него",
+  "logos": "assets/logo — знак (SVG-path) + начертание ALPHYN (wordmark.svg, recolorable через fill); локап собирается программно",
+  "fonts": "Onest (заголовки+текст), JetBrains Mono (моно) — woff2 base64 в fonts-embedded.css, OFL",
+  "skill": "https://TerryAirwalker.github.io/alphyn-brandbook/skill/alphyn-design/SKILL.md"
+ },
+ "materials": {
+  "presentation": {
+   "go_to": "slides",
+   "notes": "8 типов слайдов; чередовать фоны (≤2 подряд); .pptx по умолчанию РЕДАКТИРУЕМЫЙ — живой текст + встроенные шрифты; собирать из HTML-рецептов"
+  },
+  "document_pdf_docx": {
+   "bg": "тёмный ink или светлый #FFFFFF/#FBF9FE",
+   "title": "Onest 800",
+   "body": "Onest 400",
+   "logo": "локап на титуле, знак/начертание в колонтитуле",
+   "palette": "бренд-ядро"
+  },
+  "web_landing": {
+   "bg": "тёмный ink (hero) / светлый",
+   "decor": "aurora-свечение + blueprint-сетка в hero",
+   "accent": "lime #65FE08 только для CTA",
+   "notes": "colors — как CSS-переменные; шрифты встроены"
+  },
+  "social_banner": {
+   "bg": "ink + aurora или градиентная секция",
+   "title": "Onest 800",
+   "logo": "локап или знак",
+   "accent": "lime только CTA"
+  },
+  "infographic_chart": {
+   "go_to": "data_visualization",
+   "bg": "ink/ink-2",
+   "notes": "один цвет на ряд, холодные растяжки, без тёплых"
+  }
+ }
+}
