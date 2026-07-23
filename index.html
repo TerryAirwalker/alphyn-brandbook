@@ -264,8 +264,8 @@
   --indigo:#22186E; --violet:#6E40D7; --violet-bright:#8A5BF0; --lavender:#B8ABF4;
   --text:#EDEAFB; --soft:#C9C2E6; --muted:#9D95C4;
   --line:rgba(184,171,244,.10); --line-2:rgba(184,171,244,.16);
-  --lime:#65FE08; --lime-bright:#7AFF2A;
-  --minio:#CF163D; --minio-soft:#FF4D6D; --magenta:#C515B1; --positive:#34D399;
+  --lime:#65FE08;
+  --aqua:#1FA8BE; --positive:#34D399; --negative:#F0436B;
   --f-disp:'Onest',system-ui,sans-serif;
   --f-body:'Onest',system-ui,sans-serif;
   --f-mono:'JetBrains Mono',ui-monospace,monospace;
@@ -372,8 +372,21 @@ code{background:rgba(184,171,244,.09); padding:2px 7px; border-radius:6px; color
   box-shadow:0 40px 90px -30px rgba(110,64,215,.6), inset 0 1px 0 rgba(255,255,255,.08)}
 .note{border-left:3px solid var(--violet); background:rgba(110,64,215,.08);
   padding:14px 18px; border-radius:0 12px 12px 0; font-size:14.5px; color:var(--soft); margin:18px 0}
-.note.warn{border-color:var(--minio-soft); background:rgba(207,22,61,.10)}
+.note.warn{border-color:var(--negative); background:rgba(240,67,107,.10)}
 .note.ok{border-color:var(--positive); background:rgba(52,211,153,.09)}
+
+/* растяжки дополнительных палитр (как в брендбуке Data Sapience) */
+.palette{margin:16px 0; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--ink-2)}
+.palette-head{display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:12px 16px; flex-wrap:wrap}
+.palette-name{font-family:var(--f-disp); font-weight:700; font-size:15px; color:var(--text)}
+.palette-use{font-size:12px; color:var(--muted); text-align:right}
+.palette-strip{display:grid; grid-template-columns:repeat(6,1fr)}
+.pal-cell{min-height:92px; display:flex; align-items:flex-end; padding:10px; cursor:pointer; transition:.15s}
+.pal-cell:hover{filter:brightness(1.06)}
+.pal-info{display:flex; flex-direction:column; gap:2px; font-family:var(--f-mono); line-height:1.2}
+.pal-hex{font-size:11px; font-weight:600}
+.pal-cmyk{font-size:8.5px; opacity:.82}
+@media(max-width:640px){.palette-strip{grid-template-columns:repeat(3,1fr)}}
 .note b{color:var(--text)}
 .tag{display:inline-block; font-family:var(--f-mono); font-size:11px; padding:3px 9px; border-radius:99px;
   border:1px solid var(--line-2); color:var(--lavender); background:rgba(184,171,244,.06)}
@@ -400,7 +413,7 @@ table.t tr:hover td{background:rgba(184,171,244,.03)}
 .btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--f-body); font-weight:600; font-size:14px;
   padding:11px 22px; border-radius:var(--radius-pill); border:1px solid transparent; cursor:pointer; transition:.18s}
 .btn-primary{background:var(--lime); color:var(--indigo); border-color:var(--lime)}
-.btn-primary:hover{background:var(--lime-bright); box-shadow:0 10px 34px -10px rgba(101,254,8,.5); transform:translateY(-1px)}
+.btn-primary:hover{filter:brightness(1.08); box-shadow:0 10px 34px -10px rgba(101,254,8,.5); transform:translateY(-1px)}
 .btn-ghost{background:rgba(255,255,255,.03); color:#fff; border-color:rgba(255,255,255,.16)}
 .btn-ghost:hover{border-color:var(--lavender); background:rgba(184,171,244,.06)}
 .btn-light{background:#fff; color:var(--indigo); border-color:#fff}
@@ -517,7 +530,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
 <li><a href="#sl-intro">Принципы</a></li>
 <li><a href="#sl-bg">Фоны и атмосфера</a></li>
 <li><a href="#sl-types">Типология слайдов</a></li>
-<li><a href="#sl-light">Светлый вариант</a></li>
+<li><a href="#sl-light">Светлый вариант и чередование</a></li>
 <li><a href="#sl-assembly">Сборка слайда</a></li>
 <li><a href="#sl-checklist">Чек-лист</a></li>
 <li><a href="#sl-rules">Правила</a></li>
@@ -532,7 +545,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
 <li><a href="#d-decisioning">Decisioning Flow</a></li>
 </ul>
 </div>
-<div class="sb-foot">Alphyn — бренд-айдентика.<br>Тёмная тема — источник истины.<br>Сборка 1.0 · 23.07.2026</div></aside>
+<div class="sb-foot">Alphyn — бренд-айдентика.<br>Тёмная тема — основная, светлая — равноправна.<br>Сборка 1.0 · 23.07.2026</div></aside>
   <main class="content"><section class="chapter active" id="chap-core">
   <div class="wrap">
     
@@ -554,8 +567,9 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
         <div><div style="font-family:var(--f-disp);font-weight:700;font-size:30px;line-height:1">#6E40D7</div><div class="small mut" style="margin-top:4px">основной violet</div></div>
       </div>
       <div class="note" style="margin-top:40px">
-        <b>Тёмная тема — источник истины.</b> Сайт alphyn.ai строго тёмный. Светлая тема существует
-        только как дополнительный вариант для презентаций и печатных материалов (см. раздел «Светлая тема»).</div>
+        <b>Тёмная тема — основная.</b> Сайт alphyn.ai по умолчанию тёмный, dark-premium. Светлая тема —
+        <b>равноправный и предусмотренный вариант</b> для презентаций, документов и печатных материалов
+        (см. раздел «Светлая тема»); в презентациях тёмные и светлые фоны чередуются.</div>
     </section>
     <section class="band"><div class="grid g2"><div class="card hover" style="cursor:pointer" onclick="showChap('core')">
           <div class="tag">Глава 01</div>
@@ -569,7 +583,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
           <div class="small mut">Введение · Цвет в визуализации · Тени и градиенты · Графики и диаграммы · Схемы и флоучарты · Таблицы · +1</div></div><div class="card hover" style="cursor:pointer" onclick="showChap('slides')">
           <div class="tag">Глава 04</div>
           <h3 style="margin:12px 0 8px">Презентации и материалы</h3>
-          <div class="small mut">Принципы · Фоны и атмосфера · Типология слайдов · Светлый вариант · Сборка слайда · Чек-лист · +1</div></div><div class="card hover" style="cursor:pointer" onclick="showChap('descr')">
+          <div class="small mut">Принципы · Фоны и атмосфера · Типология слайдов · Светлый вариант и чередование · Сборка слайда · Чек-лист · +1</div></div><div class="card hover" style="cursor:pointer" onclick="showChap('descr')">
           <div class="tag">Глава 05</div>
           <h3 style="margin:12px 0 8px">Описания</h3>
           <div class="small mut">О компании · Lakehouse · AI Studio · Data Governance · Marketing Hub · Decisioning Flow</div></div></div></section>
@@ -837,38 +851,37 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
     <div class="note"><b>Тёплые цвета — вне системы.</b> Никаких оранжевых/жёлтых/коричневых оттенков.
     Палитра холодная: фиолетово-индиговая база + один неоновый lime на CTA.</div></section>
 <section class="band" id="extra-colors"><h2>Дополнительные цвета</h2>
-    <p class="lead">Акцентные цвета применяются <b style="color:var(--text)">дозированно</b> и по назначению —
-    не как сквозная тема.</p>
+    <p class="lead">Палитры для презентаций, инфографики и диаграмм — когда бренд-ядра (violet / indigo /
+    lavender) недостаточно. Все построены на основе фирменных оттенков и выдержаны в <b style="color:var(--text)">холодной
+    гамме</b>: фиолетовые, синие, аква, зелёные и нейтральные. Тёплые цвета (оранжевый, жёлтый, красный) не используются.
+    Клик по ячейке — копирование hex.</p>
+    <div class="palette"><div class="palette-head"><span class="palette-name">Растяжка violet</span><span class="palette-use">Основной фирменный цвет — фоны, заливки секций, плашки, свечения</span></div><div class="palette-strip"><div class="pal-cell" style="background:#160E3E" data-copy="#160E3E"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#160E3E</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 65·77·0·76</span></div></div><div class="pal-cell" style="background:#22186E" data-copy="#22186E"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#22186E</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 69·78·0·57</span></div></div><div class="pal-cell" style="background:#4A2E9E" data-copy="#4A2E9E"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#4A2E9E</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 53·71·0·38</span></div></div><div class="pal-cell" style="background:#6E40D7" data-copy="#6E40D7"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#6E40D7</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 49·70·0·16</span></div></div><div class="pal-cell" style="background:#8A5BF0" data-copy="#8A5BF0"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#8A5BF0</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 43·62·0·6</span></div></div><div class="pal-cell" style="background:#B8ABF4" data-copy="#B8ABF4"><div class="pal-info"><span class="pal-hex" style="color:rgba(0,0,0,.62)">#B8ABF4</span><span class="pal-cmyk" style="color:rgba(0,0,0,.62)">CMYK 25·30·0·4</span></div></div></div></div><div class="palette"><div class="palette-head"><span class="palette-name">Холодный синий</span><span class="palette-use">Деловые графики и диаграммы, многосерийные данные</span></div><div class="palette-strip"><div class="pal-cell" style="background:#0C1E4A" data-copy="#0C1E4A"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#0C1E4A</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 84·59·0·71</span></div></div><div class="pal-cell" style="background:#16327A" data-copy="#16327A"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#16327A</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 82·59·0·52</span></div></div><div class="pal-cell" style="background:#2148A8" data-copy="#2148A8"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#2148A8</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 80·57·0·34</span></div></div><div class="pal-cell" style="background:#3563D4" data-copy="#3563D4"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#3563D4</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 75·53·0·17</span></div></div><div class="pal-cell" style="background:#5B86EC" data-copy="#5B86EC"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#5B86EC</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 61·43·0·7</span></div></div><div class="pal-cell" style="background:#9DB8F5" data-copy="#9DB8F5"><div class="pal-info"><span class="pal-hex" style="color:rgba(0,0,0,.62)">#9DB8F5</span><span class="pal-cmyk" style="color:rgba(0,0,0,.62)">CMYK 36·25·0·4</span></div></div></div></div><div class="palette"><div class="palette-head"><span class="palette-name">Холодные нейтральные</span><span class="palette-use">Графит и сланец — текст, сетки, разделители, нейтральные фоны</span></div><div class="palette-strip"><div class="pal-cell" style="background:#0A0913" data-copy="#0A0913"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#0A0913</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 47·53·0·93</span></div></div><div class="pal-cell" style="background:#171426" data-copy="#171426"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#171426</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 39·47·0·85</span></div></div><div class="pal-cell" style="background:#2A2740" data-copy="#2A2740"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#2A2740</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 34·39·0·75</span></div></div><div class="pal-cell" style="background:#454063" data-copy="#454063"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#454063</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 30·35·0·61</span></div></div><div class="pal-cell" style="background:#6E6893" data-copy="#6E6893"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#6E6893</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 25·29·0·42</span></div></div><div class="pal-cell" style="background:#A8A2C8" data-copy="#A8A2C8"><div class="pal-info"><span class="pal-hex" style="color:rgba(0,0,0,.62)">#A8A2C8</span><span class="pal-cmyk" style="color:rgba(0,0,0,.62)">CMYK 16·19·0·22</span></div></div></div></div><div class="palette"><div class="palette-head"><span class="palette-name">Аква и бирюза</span><span class="palette-use">Холодный вторичный акцент — инфографика, выделения, переходы</span></div><div class="palette-strip"><div class="pal-cell" style="background:#062E38" data-copy="#062E38"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#062E38</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 89·18·0·78</span></div></div><div class="pal-cell" style="background:#0B4F5E" data-copy="#0B4F5E"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#0B4F5E</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 88·16·0·63</span></div></div><div class="pal-cell" style="background:#117A8C" data-copy="#117A8C"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#117A8C</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 88·13·0·45</span></div></div><div class="pal-cell" style="background:#1FA8BE" data-copy="#1FA8BE"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#1FA8BE</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 84·12·0·25</span></div></div><div class="pal-cell" style="background:#4FCEDF" data-copy="#4FCEDF"><div class="pal-info"><span class="pal-hex" style="color:rgba(0,0,0,.62)">#4FCEDF</span><span class="pal-cmyk" style="color:rgba(0,0,0,.62)">CMYK 65·8·0·13</span></div></div><div class="pal-cell" style="background:#A6EAF2" data-copy="#A6EAF2"><div class="pal-info"><span class="pal-hex" style="color:rgba(0,0,0,.62)">#A6EAF2</span><span class="pal-cmyk" style="color:rgba(0,0,0,.62)">CMYK 31·3·0·5</span></div></div></div></div><div class="palette"><div class="palette-head"><span class="palette-name">Зелёная гамма</span><span class="palette-use">На основе positive — статусы, рост, позитивные значения</span></div><div class="palette-strip"><div class="pal-cell" style="background:#0C3D2E" data-copy="#0C3D2E"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#0C3D2E</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 80·0·25·76</span></div></div><div class="pal-cell" style="background:#12633F" data-copy="#12633F"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#12633F</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 82·0·36·61</span></div></div><div class="pal-cell" style="background:#1B8F5B" data-copy="#1B8F5B"><div class="pal-info"><span class="pal-hex" style="color:rgba(255,255,255,.9)">#1B8F5B</span><span class="pal-cmyk" style="color:rgba(255,255,255,.9)">CMYK 81·0·36·44</span></div></div><div class="pal-cell" style="background:#34D399" data-copy="#34D399"><div class="pal-info"><span class="pal-hex" style="color:rgba(0,0,0,.62)">#34D399</span><span class="pal-cmyk" style="color:rgba(0,0,0,.62)">CMYK 75·0·27·17</span></div></div><div class="pal-cell" style="background:#6FE3B8" data-copy="#6FE3B8"><div class="pal-info"><span class="pal-hex" style="color:rgba(0,0,0,.62)">#6FE3B8</span><span class="pal-cmyk" style="color:rgba(0,0,0,.62)">CMYK 51·0·19·11</span></div></div><div class="pal-cell" style="background:#B5F1DA" data-copy="#B5F1DA"><div class="pal-info"><span class="pal-hex" style="color:rgba(0,0,0,.62)">#B5F1DA</span><span class="pal-cmyk" style="color:rgba(0,0,0,.62)">CMYK 25·0·10·5</span></div></div></div></div>
+    <div class="note"><b>Правило.</b> Дополнительные палитры вторичны — бренд-ядро (violet #6E40D7, indigo #22186E,
+    lavender #B8ABF4) всегда доминирует. Растяжки применяются только в данных — графики, диаграммы, инфографика —
+    и не идут на логотип, заголовки и крупные фоновые плашки. В одном макете — не более двух дополнительных палитр
+    одновременно, палитра внутри строго от тёмного к светлому.</div>
+
+    <h3>Функциональные сигналы</h3>
+    <p class="small mut">Служебные цвета вне бренд-ядра и растяжек — только по прямому назначению, дозированно.</p>
     <div class="swatches"><div class="sw">
           <div class="chip" style="background:#65FE08" data-copy="#65FE08"></div>
           <div class="meta"><div class="nm">Lime (CTA)</div>
           <div class="hex" data-copy="#65FE08">#65FE08</div>
           <div class="role">заливка primary-кнопок (текст на ней — indigo). Единственный «горячий» неон — только CTA</div></div></div><div class="sw">
-          <div class="chip" style="background:#7AFF2A" data-copy="#7AFF2A"></div>
-          <div class="meta"><div class="nm">Lime hover</div>
-          <div class="hex" data-copy="#7AFF2A">#7AFF2A</div>
-          <div class="role">hover primary-кнопки + свечение</div></div></div><div class="sw">
-          <div class="chip" style="background:#CF163D" data-copy="#CF163D"></div>
-          <div class="meta"><div class="nm">MinIO crimson</div>
-          <div class="hex" data-copy="#CF163D">#CF163D</div>
-          <div class="role">co-branding MinIO: плитка иконки AIStor</div></div></div><div class="sw">
-          <div class="chip" style="background:#FF4D6D" data-copy="#FF4D6D"></div>
-          <div class="meta"><div class="nm">MinIO soft</div>
-          <div class="hex" data-copy="#FF4D6D">#FF4D6D</div>
-          <div class="role">текст/линк «MINIO» на тёмном</div></div></div><div class="sw">
-          <div class="chip" style="background:#C515B1" data-copy="#C515B1"></div>
-          <div class="meta"><div class="nm">Magenta</div>
-          <div class="hex" data-copy="#C515B1">#C515B1</div>
-          <div class="role">переход crimson↔violet (MinIO co-brand)</div></div></div><div class="sw">
           <div class="chip" style="background:#34D399" data-copy="#34D399"></div>
           <div class="meta"><div class="nm">Positive</div>
           <div class="hex" data-copy="#34D399">#34D399</div>
-          <div class="role">«гарантия / проверено» (shield-check). Точечно</div></div></div></div>
-    <div class="note"><b>Правило MinIO co-branding.</b> Бренды делят violet/indigo-базу (индиго-конец
-    градиента MinIO ≈ наш indigo); расходятся только в magenta/crimson. MinIO-цвета — только на
-    MinIO-элементы (карточка AIStor, линк MINIO), не как общий акцент.</div>
-    <div class="note ok"><b>Positive #34D399</b> — только семантика «проверено/гарантия» (иконка shield-check
-    в плашке Guarantee). Не использовать как второй бренд-цвет.</div></section>
+          <div class="role">семантика «рост / проверено / гарантия». Точечно, в данных и статусах</div></div></div><div class="sw">
+          <div class="chip" style="background:#F0436B" data-copy="#F0436B"></div>
+          <div class="meta"><div class="nm">Negative</div>
+          <div class="hex" data-copy="#F0436B">#F0436B</div>
+          <div class="role">семантика «ошибка / было / антипаттерн». Точечно, в данных и ✕-карточках</div></div></div><div class="sw">
+          <div class="chip" style="background:#1FA8BE" data-copy="#1FA8BE"></div>
+          <div class="meta"><div class="nm">Aqua</div>
+          <div class="hex" data-copy="#1FA8BE">#1FA8BE</div>
+          <div class="role">холодный вторичный акцент для инфографики и выделений (не бренд-цвет)</div></div></div></div>
+    <div class="note ok"><b>Aqua #1FA8BE</b> — предлагаемый холодный вторичный акцент для инфографики.
+    Это не второй бренд-цвет: заголовки, логотип и крупные фоны остаются в violet/indigo.</div></section>
 <section class="band" id="type"><h2>Типографика</h2>
     <p class="lead">Одна текстовая гарнитура на всё — <b style="color:var(--text)">Onest</b>: и заголовки,
     и текст, и интерфейс. Латиница и кириллица идентичны, различие ролей — только в начертании и кегле.
@@ -984,7 +997,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
     карточек. 4 колонки, gap 13px. Типы плиток: <b style="color:var(--text)">showpiece</b> (2×2, mark-градиент +
     watermark), <b style="color:var(--text)">solution</b> (раскрываемые, свой акцент на продукт),
     <b style="color:var(--text)">stat</b> (крупная цифра Onest 800), <b style="color:var(--text)">CTA</b>.</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-areas:'mark mark lake ice' 'mark mark lake ice' 'clust thru scost minio';gap:11px;margin:16px 0">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-areas:'mark mark lake ice' 'mark mark lake ice' 'clust thru scost store';gap:11px;margin:16px 0">
       <div style="grid-area:mark;background:var(--grad-accent);border:1px solid var(--line-2);border-radius:16px;padding:20px;position:relative;overflow:hidden;min-height:150px">
         <div style="position:absolute;right:-20px;bottom:-30px;width:120px;height:120px;opacity:.16"><svg viewBox="184.95 64.44 120.27 68.26" width="66" height="66" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><path d="m256.24,71.22l43.7,41.11c2.17,2.04,1.52,3.68-1.46,3.68h-17.94c-4.86,0-6.65-1.07-8.93-5.37l-17.68-33.27c-1.14-2.15-2.03-2.68-4.46-2.68h-8.77c-2.43,0-3.32.54-4.46,2.68l-17.68,33.27c-2.28,4.29-4.07,5.37-8.93,5.37h-17.94c-2.98,0-3.62-1.64-1.46-3.67l43.69-41.11c2.44-2.29,3.7-2.79,7.04-2.79h8.23c3.35,0,4.61.5,7.04,2.79Zm-6.43,12.85h-9.47c-2.78,0-3.79.71-4.72,3.33l-8.72,24.61c-.87,2.46-.6,3.56,1.29,5.34l10.57,9.95c1.22,1.15,1.85,1.4,3.52,1.4h5.58c1.67,0,2.3-.25,3.52-1.4l10.56-9.94c1.9-1.79,2.16-2.89,1.29-5.34l-8.72-24.61c-.93-2.62-1.93-3.33-4.72-3.33Z" fill="#B8ABF4"/></svg></div>
         <div class="tag">Showpiece</div><div style="font-family:var(--f-disp);font-weight:700;font-size:26px;margin-top:10px;line-height:1.05">One Unified<br>Vision</div></div>
@@ -1003,9 +1016,9 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
       <div style="grid-area:scost;background:linear-gradient(180deg,rgba(184,171,244,.05),rgba(184,171,244,.015));border:1px solid var(--line);border-radius:14px;padding:14px 16px">
       <div style="font-family:var(--f-disp);font-weight:700;font-size:26px;line-height:1"><$3</div>
       <div class="small mut" style="margin-top:4px">Per TB/mo</div></div>
-      <div style="grid-area:minio;background:linear-gradient(150deg,#FF5C7A,#D618C0);border-radius:14px;padding:16px;min-height:70px;display:flex;flex-direction:column;justify-content:flex-end;position:relative">
+      <div style="grid-area:store;background:linear-gradient(150deg,#4FCEDF,#117A8C);border-radius:14px;padding:16px;min-height:70px;display:flex;flex-direction:column;justify-content:flex-end;position:relative">
       <div style="position:absolute;top:12px;right:12px;color:#fff;opacity:.85">↗</div>
-      <div style="font-family:var(--f-body);font-weight:600;font-size:16px;color:#fff">MinIO</div></div>
+      <div style="font-family:var(--f-body);font-weight:600;font-size:16px;color:#fff">Object Store</div></div>
     </div>
 
     <h3>Карточка продукта</h3>
@@ -1059,7 +1072,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
     <p class="lead">Радиус всех кнопок — <b style="color:var(--text)">99px (pill)</b>. Три варианта под контекст фона.</p>
     <div class="grid g3" style="margin-top:22px">
       <div class="card"><div style="min-height:70px;display:grid;place-items:center"><span class="btn btn-primary">Get Started →</span></div>
-        <h4 style="margin-top:8px">Primary</h4><p class="small">Заливка lime #65FE08, текст indigo. Главный CTA на тёмном. Hover — ярче #7AFF2A + lime-свечение + подъём.</p></div>
+        <h4 style="margin-top:8px">Primary</h4><p class="small">Заливка lime #65FE08, текст indigo. Главный CTA на тёмном. Hover — чуть ярче + lime-свечение + подъём.</p></div>
       <div class="card"><div style="min-height:70px;display:grid;place-items:center"><span class="btn btn-ghost">Explore Platform</span></div>
         <h4 style="margin-top:8px">Ghost</h4><p class="small">Прозрачный фон, белый текст, тонкий бордер. Вторичное действие рядом с primary. Hover — бордер lavender.</p></div>
       <div class="card" style="background:#fff"><div style="min-height:70px;display:grid;place-items:center"><span class="btn btn-light">Apply for Assessment</span></div>
@@ -1068,8 +1081,9 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
     <div class="note"><b>Lime — только CTA.</b> Неоновый lime не используется в типографике, плашках или иконках —
     исключительно заливка primary-кнопок и CTA. Lime-свечение (box-shadow) — только на тёмном фоне; на светлом маркеры без glow.</div></section>
 <section class="band" id="light"><h2>Светлая тема</h2>
-    <p class="lead">Светлая тема — <b style="color:var(--text)">дополнительный</b> вариант для презентаций и печати.
-    Сайт остаётся строго тёмным. Принцип: «много фиолетового вверху (обложка), дальше — белый воздух».</p>
+    <p class="lead">Светлая тема — <b style="color:var(--text)">полноценный, предусмотренный</b> вариант для презентаций,
+    документов и печати. Тёмная тема остаётся основной для сайта, светлая — равноправна в материалах и активно
+    используется в чередовании фонов слайдов. Принцип: «много фиолетового вверху (обложка), дальше — белый воздух».</p>
     <div class="light-demo" style="margin-top:22px">
       <div class="kicker">Light theme · preview</div>
       <h3 style="font-size:30px;margin:8px 0 10px">Заголовок на белом</h3>
@@ -1103,7 +1117,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
           <li>Lime только на CTA-кнопках</li>
           <li>Знак как орбита / watermark / контур / глиф — по роли</li>
           <li>Цвет точечно; много воздуха</li></ul></div>
-      <div class="card" style="border-color:rgba(207,22,61,.3)"><h4 style="color:var(--minio-soft)">✕ Неправильно</h4>
+      <div class="card" style="border-color:rgba(240,67,107,.3)"><h4 style="color:var(--negative)">✕ Неправильно</h4>
         <ul class="small" style="color:var(--soft);line-height:1.9;margin:10px 0 0;padding-left:18px">
           <li>Тёплые цвета (оранжевый/жёлтый/коричневый)</li>
           <li>Гексагон как декор</li>
@@ -1111,7 +1125,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
           <li>Перерисовка/деформация знака, обводки и тени на нём</li>
           <li>Lime в тексте, плашках, иконках</li>
           <li>Замощение паттерном, стоковые «облака», кислотные градиенты</li>
-          <li>MinIO-цвета как сквозная тема</li></ul></div>
+          <li>Чужие/партнёрские бренд-цвета как сквозная тема</li></ul></div>
     </div></section>
 <section class="band" id="resources"><h2>Ресурсы</h2>
     <p class="lead">Где лежат ассеты, шрифты и машиночитаемая спека для агента.</p>
@@ -1135,7 +1149,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
     </div>
     <div class="note"><b>Нестандартный запрос или нехватка ассета?</b> Не выдумывай — используй раздел «Ресурсы»
     и согласуй новые ассеты/исключения с владельцем бренда.</div></section>
-<section class="band" id="faq"><h2>FAQ — агент по дизайну</h2><p class="lead">Частые вопросы при генерации материалов «в стиле Alphyn».</p><div style="margin-top:20px"><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Какая пара шрифтов у бренда?</h4><p class="small" style="margin-top:6px">Одна гарнитура на всё: <b>Onest</b> — заголовки и текст, латиница и кириллица в едином ритме (веса 400–800). <b>JetBrains Mono</b> — только код, лейблы и технические значения. Другие гарнитуры не подмешивать (в т.ч. Inter, Bricolage).</p></div><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Где брать логотип?</h4><p class="small" style="margin-top:6px">Оригинальные SVG из ассетов. Знак не перерисовывать. Цвет — по фону: тёмный → белый/градиент, светлый → индиго.</p></div><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Можно ли добавить свой акцентный цвет?</h4><p class="small" style="margin-top:6px">Нет. Палитра закрыта: violet/indigo/lavender + lime CTA. Тёплые цвета запрещены. MinIO/positive — только по назначению.</p></div><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Светлая тема — это для сайта?</h4><p class="small" style="margin-top:6px">Нет. Сайт всегда тёмный. Светлая тема — только для презентаций и печатных материалов.</p></div><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Гексагон где-то остался — что делать?</h4><p class="small" style="margin-top:6px">Убрать. Гексагональный мотив в новую айдентику не входит.</p></div></div></section>
+<section class="band" id="faq"><h2>FAQ — агент по дизайну</h2><p class="lead">Частые вопросы при генерации материалов «в стиле Alphyn».</p><div style="margin-top:20px"><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Какая пара шрифтов у бренда?</h4><p class="small" style="margin-top:6px">Одна гарнитура на всё: <b>Onest</b> — заголовки и текст, латиница и кириллица в едином ритме (веса 400–800). <b>JetBrains Mono</b> — только код, лейблы и технические значения. Другие гарнитуры не подмешивать (в т.ч. Inter, Bricolage).</p></div><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Где брать логотип?</h4><p class="small" style="margin-top:6px">Оригинальные SVG из ассетов. Знак не перерисовывать. Цвет — по фону: тёмный → белый/градиент, светлый → индиго.</p></div><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Можно ли добавить свой акцентный цвет?</h4><p class="small" style="margin-top:6px">Бренд-ядро закрыто: violet/indigo/lavender + lime CTA. Тёплые цвета запрещены. Для данных и инфографики есть холодные дополнительные растяжки (раздел «Дополнительные цвета»); сигнальные positive/negative/aqua — только по назначению.</p></div><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Когда светлая тема, когда тёмная?</h4><p class="small" style="margin-top:6px">Сайт alphyn.ai по умолчанию тёмный. Светлая тема — равноправный предусмотренный вариант для презентаций, документов и печати. В презентациях тёмные и светлые фоны чередуются: не более 2 слайдов подряд на одном фоне.</p></div><div class="card" style="margin-bottom:12px"><h4 style="color:var(--lavender)">Гексагон где-то остался — что делать?</h4><p class="small" style="margin-top:6px">Убрать. Гексагональный мотив в новую айдентику не входит.</p></div></div></section>
   </div>
 </section>
 <section class="chapter" id="chap-products"><div class="wrap"><section class="band" id="prod-overview">
@@ -1255,7 +1269,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
       <tr><td>Короткое имя</td><td>Lakehouse, AI Studio — в контексте, где бренд уже назван</td></tr>
       <tr><td>Логотип продукта</td><td>отдельного логотипа нет — общий знак Alphyn + имя (Onest 600–700)</td></tr>
       <tr><td>Акцент-цвет</td><td>оттенок в пределах violet-гаммы; за пределы палитры не выходить</td></tr>
-      <tr><td>MinIO / Iceberg</td><td>партнёрские технологии, не продукты Alphyn: MinIO — crimson co-brand дозированно, Iceberg — indigo</td></tr>
+      <tr><td>Открытые технологии</td><td>объектное S3-хранилище, Apache Iceberg и др. — открытые/партнёрские технологии слоя данных, не продукты Alphyn: в схемах — нейтральный тон или indigo, без чужих бренд-цветов</td></tr>
     </table>
     <div class="note warn"><b>Не создавать суб-бренды.</b> У продуктов нет собственных логотипов, палитр или шрифтов.
     Это единый бренд Alphyn с функциональными модулями.</div></section></div></section>
@@ -1332,7 +1346,7 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
     </table></section>
 <section class="band" id="vis-forbidden"><hr class="div"><h3 style="margin-top:0">Недопустимые решения</h3>
     <div class="grid g2" style="margin-top:8px">
-      <div class="card" style="border-color:rgba(207,22,61,.3)"><h4 style="color:var(--minio-soft)">✕ Не делать</h4>
+      <div class="card" style="border-color:rgba(240,67,107,.3)"><h4 style="color:var(--negative)">✕ Не делать</h4>
         <ul class="small" style="color:var(--soft);line-height:1.9;margin:10px 0 0;padding-left:18px">
           <li>Радужные / дефолтные палитры matplotlib, Excel</li>
           <li>Тёплые цвета (оранжевый/жёлтый) в рядах</li>
@@ -1350,14 +1364,15 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
 <section class="chapter" id="chap-slides"><div class="wrap"><section class="band" id="sl-intro">
     <div class="kicker">Презентации и материалы · 04</div>
     <h2>Презентации<br>и материалы</h2>
-    <p class="lead">Слайды — тот же бренд, что и сайт: тёмный dark-premium канвас, крупная типографика,
-    точечный violet-акцент. Один смысл на слайд, воздух вокруг, минимум декора. Светлый вариант — только
-    для печати и совместимости, по правилам раздела «Светлый вариант».</p>
+    <p class="lead">Слайды — тот же бренд, что и сайт: dark-premium канвас, крупная типографика,
+    точечный violet-акцент. Один смысл на слайд, воздух вокруг, минимум декора. Тёмный и светлый фоны —
+    равноправны и <b style="color:var(--text)">чередуются</b> по колоде, чтобы презентация «дышала»
+    (см. «Светлый вариант и чередование»).</p>
     <div class="grid g3" style="margin-top:24px">
       <div class="card"><div class="tag">Принцип 1</div><h4 style="margin-top:10px">Одна мысль — один слайд</h4>
         <p class="small">Заголовок формулирует вывод, а не тему. Тело слайда доказывает заголовок. Не более одной идеи на экран.</p></div>
-      <div class="card"><div class="tag">Принцип 2</div><h4 style="margin-top:10px">Тёмный по умолчанию</h4>
-        <p class="small">Фон — near-black ink с мягким violet-свечением. Тот же канвас, что на alphyn.ai — презентация читается как продолжение сайта.</p></div>
+      <div class="card"><div class="tag">Принцип 2</div><h4 style="margin-top:10px">Тёмный + светлый, в ритме</h4>
+        <p class="small">Тёмный ink — базовый фон, светлый — равноправный. Фоны чередуются: не более 2 слайдов подряд на одном фоне. Ритм задаёт «дыхание» колоде.</p></div>
       <div class="card"><div class="tag">Принцип 3</div><h4 style="margin-top:10px">Type-forward</h4>
         <p class="small">Композицию ведёт текст: заголовок и тело — Onest, цифры — крупно. Иллюстрация поддерживает, а не заменяет мысль.</p></div>
     </div></section>
@@ -1387,23 +1402,32 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
     <div class="grid g4" style="margin-top:18px"><div><div class="tag" style="margin-bottom:8px">Обложка</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;width:60%;height:120%;right:-10%;top:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(110,64,215,.55),transparent 65%);pointer-events:none"></div><div style="position:absolute;width:45%;height:90%;left:-8%;bottom:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(34,24,110,.7),transparent 65%);pointer-events:none"></div><div style="position:absolute;left:20px;bottom:34px"><div style="font-family:var(--f-disp);font-weight:700;font-size:20px;line-height:1;color:var(--text)">Заголовок</div><div style="font-size:9px;color:var(--muted);margin-top:6px">подзаголовок · дата</div></div></div><div class="small mut" style="margin-top:8px">знак + крупный заголовок, aurora-фон</div></div><div><div class="tag" style="margin-bottom:8px">Разделитель</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;inset:0;background:var(--grad-accent)"></div><div style="position:absolute;left:20px;top:16px;font-size:9px;color:rgba(255,255,255,.7)">02</div><div style="position:absolute;left:20px;bottom:30px;font-family:var(--f-disp);font-weight:700;font-size:18px;color:#fff">Раздел</div></div><div class="small mut" style="margin-top:8px">градиентная секция, номер + название раздела</div></div><div><div class="tag" style="margin-bottom:8px">Statement</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;width:60%;height:120%;right:-10%;top:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(110,64,215,.4),transparent 65%);pointer-events:none"></div><div style="position:absolute;width:45%;height:90%;left:-8%;bottom:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(34,24,110,.7),transparent 65%);pointer-events:none"></div><div style="position:absolute;inset:0;display:grid;place-items:center;padding:16px;text-align:center"><div style="font-family:var(--f-disp);font-weight:700;font-size:15px;line-height:1.15;color:var(--text)">Один тезис<br>крупно</div></div></div><div class="small mut" style="margin-top:8px">один тезис по центру, максимум воздуха</div></div><div><div class="tag" style="margin-bottom:8px">Контент</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;left:18px;top:16px;font-family:var(--f-disp);font-weight:700;font-size:13px;color:var(--text)">Заголовок-вывод</div><div style="position:absolute;left:18px;top:44px;right:18px"><div style="display:flex;gap:7px;align-items:center;margin-bottom:7px"><span style="width:5px;height:5px;border-radius:2px;background:var(--violet-bright)"></span><span style="height:5px;width:70%;background:var(--line-2);border-radius:3px"></span></div><div style="display:flex;gap:7px;align-items:center;margin-bottom:7px"><span style="width:5px;height:5px;border-radius:2px;background:var(--violet-bright)"></span><span style="height:5px;width:55%;background:var(--line-2);border-radius:3px"></span></div><div style="display:flex;gap:7px;align-items:center"><span style="width:5px;height:5px;border-radius:2px;background:var(--violet-bright)"></span><span style="height:5px;width:62%;background:var(--line-2);border-radius:3px"></span></div></div></div><div class="small mut" style="margin-top:8px">заголовок-вывод + маркированные пункты (≤ 4)</div></div><div><div class="tag" style="margin-bottom:8px">Данные</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;left:18px;top:16px;font-family:var(--f-disp);font-weight:700;font-size:13px;color:var(--text)">Данные</div><div style="position:absolute;left:18px;bottom:18px"><span style="font-family:var(--f-disp);font-weight:700;font-size:30px;color:var(--violet-bright)">3PB+</span><div style="font-size:8px;color:var(--muted)">под управлением</div></div><div style="position:absolute;right:16px;bottom:16px;width:44%"><svg viewBox="0 0 220 140" style="width:100%">
       <defs><linearGradient id="bargrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A5BF0"/><stop offset="1" stop-color="#8A5BF0" stop-opacity=".25"/></linearGradient></defs>
       <line x1="16" y1="102.0" x2="210" y2="102.0" stroke="rgba(184,171,244,.10)"/><line x1="16" y1="60.0" x2="210" y2="60.0" stroke="rgba(184,171,244,.10)"/><line x1="16" y1="18.0" x2="210" y2="18.0" stroke="rgba(184,171,244,.10)"/>
-      <rect x="20" y="74.0" width="20" height="56.0" rx="4" fill="url(#bargrad)"/><rect x="52" y="43.2" width="20" height="86.8" rx="4" fill="url(#bargrad)"/><rect x="84" y="53.0" width="20" height="77.0" rx="4" fill="url(#bargrad)"/><rect x="116" y="18.0" width="20" height="112.0" rx="4" fill="url(#bargrad)"/><rect x="148" y="62.80000000000001" width="20" height="67.19999999999999" rx="4" fill="url(#bargrad)"/><rect x="180" y="32.0" width="20" height="98.0" rx="4" fill="url(#bargrad)"/></svg></div></div><div class="small mut" style="margin-top:8px">крупная цифра + один график в violet-гамме</div></div><div><div class="tag" style="margin-bottom:8px">Сравнение</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;inset:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="background:rgba(207,22,61,.12);border:1px solid rgba(207,22,61,.3);border-radius:7px"></div><div style="background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);border-radius:7px"></div></div><div style="position:absolute;left:18px;top:6px;font-size:8px;color:var(--muted)">✕ было</div><div style="position:absolute;right:18px;top:6px;font-size:8px;color:var(--muted)">✓ стало</div></div><div class="small mut" style="margin-top:8px">было/стало — minio слева, positive справа</div></div><div><div class="tag" style="margin-bottom:8px">Цитата</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;width:60%;height:120%;right:-10%;top:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(110,64,215,.35),transparent 65%);pointer-events:none"></div><div style="position:absolute;width:45%;height:90%;left:-8%;bottom:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(34,24,110,.7),transparent 65%);pointer-events:none"></div><div style="position:absolute;left:18px;top:14px;font-family:var(--f-disp);font-size:34px;color:var(--violet-bright);line-height:1">“</div><div style="position:absolute;left:18px;right:18px;top:40px;font-size:11px;color:var(--soft);line-height:1.35">Цитата клиента или ключевой вывод одним предложением.</div></div><div class="small mut" style="margin-top:8px">крупная кавычка, короткая мысль</div></div><div><div class="tag" style="margin-bottom:8px">Финал / CTA</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;inset:0;background:var(--grad-accent)"></div><div style="position:absolute;inset:0;display:grid;place-items:center"><div style="text-align:center"><div style="font-family:var(--f-disp);font-weight:700;font-size:16px;color:#fff">Спасибо</div><div style="display:inline-block;margin-top:8px;padding:5px 12px;border-radius:7px;background:var(--lime);color:#0A0A0A;font-size:9px;font-weight:700">alphyn.ai</div></div></div></div><div class="small mut" style="margin-top:8px">градиент + lime-кнопка с адресом</div></div></div></section>
-<section class="band" id="sl-light"><h3 style="margin-top:0">Светлый вариант</h3>
-    <p class="lead">Тёмная тема — источник истины. Светлый вариант допустим только там, где тёмный физически
-    не работает: чёрно-белая печать, документы под корпоративные шаблоны заказчика, проекторы с засветкой.</p>
+      <rect x="20" y="74.0" width="20" height="56.0" rx="4" fill="url(#bargrad)"/><rect x="52" y="43.2" width="20" height="86.8" rx="4" fill="url(#bargrad)"/><rect x="84" y="53.0" width="20" height="77.0" rx="4" fill="url(#bargrad)"/><rect x="116" y="18.0" width="20" height="112.0" rx="4" fill="url(#bargrad)"/><rect x="148" y="62.80000000000001" width="20" height="67.19999999999999" rx="4" fill="url(#bargrad)"/><rect x="180" y="32.0" width="20" height="98.0" rx="4" fill="url(#bargrad)"/></svg></div></div><div class="small mut" style="margin-top:8px">крупная цифра + один график в violet-гамме</div></div><div><div class="tag" style="margin-bottom:8px">Сравнение</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;inset:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="background:rgba(240,67,107,.12);border:1px solid rgba(240,67,107,.3);border-radius:7px"></div><div style="background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);border-radius:7px"></div></div><div style="position:absolute;left:18px;top:6px;font-size:8px;color:var(--muted)">✕ было</div><div style="position:absolute;right:18px;top:6px;font-size:8px;color:var(--muted)">✓ стало</div></div><div class="small mut" style="margin-top:8px">было/стало — negative слева, positive справа</div></div><div><div class="tag" style="margin-bottom:8px">Цитата</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;width:60%;height:120%;right:-10%;top:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(110,64,215,.35),transparent 65%);pointer-events:none"></div><div style="position:absolute;width:45%;height:90%;left:-8%;bottom:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(34,24,110,.7),transparent 65%);pointer-events:none"></div><div style="position:absolute;left:18px;top:14px;font-family:var(--f-disp);font-size:34px;color:var(--violet-bright);line-height:1">“</div><div style="position:absolute;left:18px;right:18px;top:40px;font-size:11px;color:var(--soft);line-height:1.35">Цитата клиента или ключевой вывод одним предложением.</div></div><div class="small mut" style="margin-top:8px">крупная кавычка, короткая мысль</div></div><div><div class="tag" style="margin-bottom:8px">Финал / CTA</div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;inset:0;background:var(--grad-accent)"></div><div style="position:absolute;inset:0;display:grid;place-items:center"><div style="text-align:center"><div style="font-family:var(--f-disp);font-weight:700;font-size:16px;color:#fff">Спасибо</div><div style="display:inline-block;margin-top:8px;padding:5px 12px;border-radius:7px;background:var(--lime);color:#0A0A0A;font-size:9px;font-weight:700">alphyn.ai</div></div></div></div><div class="small mut" style="margin-top:8px">градиент + lime-кнопка с адресом</div></div></div></section>
+<section class="band" id="sl-light"><h3 style="margin-top:0">Светлый вариант и чередование фонов</h3>
+    <p class="lead">Светлый вариант — <b style="color:var(--text)">равноправная</b> ветка темы: те же бренд-цвета,
+    сетка и типографика, другой канвас. Тёмный — базовый фон презентации и сайта, светлый активно используется
+    в чередовании фонов и там, где тёмный неудобен: печать, документы под шаблоны заказчика, проекторы с засветкой.</p>
     <div class="grid g2" style="margin-top:16px">
-      <div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;width:60%;height:120%;right:-10%;top:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(110,64,215,.55),transparent 65%);pointer-events:none"></div><div style="position:absolute;width:45%;height:90%;left:-8%;bottom:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(34,24,110,.7),transparent 65%);pointer-events:none"></div><div style="position:absolute;left:20px;bottom:28px;font-family:var(--f-disp);font-weight:700;font-size:16px;color:var(--text)">Тёмный — по умолчанию</div><div style="position:absolute;left:22px;right:22px;bottom:12px;display:flex;justify-content:space-between;align-items:center;font-size:9px;color:var(--muted)"><span class="mono" style="letter-spacing:.14em">ALPHYN</span><span>alphyn.ai</span></div></div></div>
-      <div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:#fff;border:1px solid var(--line);"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#FBF9FE,#F3EEFC)"></div><div style="position:absolute;left:20px;top:16px;width:44px;height:6px;border-radius:3px;background:var(--grad-mark)"></div><div style="position:absolute;left:20px;bottom:28px;font-family:var(--f-disp);font-weight:700;font-size:16px;color:#22186E">Светлый — по исключению</div><div style="position:absolute;left:20px;right:20px;bottom:12px;display:flex;justify-content:space-between;font-size:9px;color:#8B82B0"><span class="mono">ALPHYN</span><span>alphyn.ai</span></div></div></div>
+      <div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;width:60%;height:120%;right:-10%;top:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(110,64,215,.55),transparent 65%);pointer-events:none"></div><div style="position:absolute;width:45%;height:90%;left:-8%;bottom:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(34,24,110,.7),transparent 65%);pointer-events:none"></div><div style="position:absolute;left:20px;bottom:28px;font-family:var(--f-disp);font-weight:700;font-size:16px;color:var(--text)">Тёмный — базовый</div><div style="position:absolute;left:22px;right:22px;bottom:12px;display:flex;justify-content:space-between;align-items:center;font-size:9px;color:var(--muted)"><span class="mono" style="letter-spacing:.14em">ALPHYN</span><span>alphyn.ai</span></div></div></div>
+      <div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:#fff;border:1px solid var(--line);"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#FBF9FE,#F3EEFC)"></div><div style="position:absolute;left:20px;top:16px;width:44px;height:6px;border-radius:3px;background:var(--grad-mark)"></div><div style="position:absolute;left:20px;bottom:28px;font-family:var(--f-disp);font-weight:700;font-size:16px;color:#22186E">Светлый — равноправный</div><div style="position:absolute;left:20px;right:20px;bottom:12px;display:flex;justify-content:space-between;font-size:9px;color:#8B82B0"><span class="mono">ALPHYN</span><span>alphyn.ai</span></div></div></div>
     </div>
     <table class="t">
-      <tr><th>Элемент</th><th>Тёмный (default)</th><th>Светлый (исключение)</th></tr>
+      <tr><th>Элемент</th><th>Тёмный (базовый)</th><th>Светлый (равноправный)</th></tr>
       <tr><td>Фон</td><td>ink #08060F</td><td>#FFFFFF / #FBF9FE</td></tr>
       <tr><td>Основной текст</td><td>text #EDEAFB</td><td>indigo #22186E</td></tr>
       <tr><td>Акцент</td><td>violet-bright #8A5BF0</td><td>violet #6E40D7</td></tr>
       <tr><td>Свечение</td><td>да, violet radial</td><td>нет — плоские заливки</td></tr>
     </table>
-    <div class="note warn"><b>Не смешивать темы в одной колоде.</b> Презентация целиком тёмная или целиком светлая.
-    Логотип на светлом — версия с индиго-начертанием, знак остаётся градиентным.</div></section>
+    <h3>Чередование фонов</h3>
+    <p class="small">Почти каждый тип слайда существует и в тёмном, и в светлом варианте с
+    <b style="color:var(--text)">одинаковым наполнением</b> — слайды взаимозаменяемы, чтобы колода «дышала».
+    <b style="color:var(--text)">Правило: не более 2 слайдов подряд на одном фоне</b> — дальше переключайте
+    (тёмный ↔ светлый). Это задаёт ритм и не утомляет зрителя.</p>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:14px"><div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;width:60%;height:120%;right:-10%;top:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(110,64,215,.4),transparent 65%);pointer-events:none"></div><div style="position:absolute;width:45%;height:90%;left:-8%;bottom:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(34,24,110,.7),transparent 65%);pointer-events:none"></div><div style="position:absolute;left:10px;bottom:10px;font-family:var(--f-disp);font-weight:700;font-size:10px;color:var(--text)">01</div></div></div><div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;width:60%;height:120%;right:-10%;top:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(110,64,215,.4),transparent 65%);pointer-events:none"></div><div style="position:absolute;width:45%;height:90%;left:-8%;bottom:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(34,24,110,.7),transparent 65%);pointer-events:none"></div><div style="position:absolute;left:10px;bottom:10px;font-family:var(--f-disp);font-weight:700;font-size:10px;color:var(--text)">02</div></div></div><div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:#fff;border:1px solid var(--line);"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#FBF9FE,#F3EEFC)"></div><div style="position:absolute;left:10px;top:9px;width:26px;height:4px;border-radius:2px;background:var(--grad-mark)"></div><div style="position:absolute;left:10px;bottom:10px;font-family:var(--f-disp);font-weight:700;font-size:10px;color:#22186E">03</div></div></div><div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--ink);border:1px solid var(--line);"><div style="position:absolute;width:60%;height:120%;right:-10%;top:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(110,64,215,.4),transparent 65%);pointer-events:none"></div><div style="position:absolute;width:45%;height:90%;left:-8%;bottom:-30%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(34,24,110,.7),transparent 65%);pointer-events:none"></div><div style="position:absolute;left:10px;bottom:10px;font-family:var(--f-disp);font-weight:700;font-size:10px;color:var(--text)">04</div></div></div><div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:#fff;border:1px solid var(--line);"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#FBF9FE,#F3EEFC)"></div><div style="position:absolute;left:10px;top:9px;width:26px;height:4px;border-radius:2px;background:var(--grad-mark)"></div><div style="position:absolute;left:10px;bottom:10px;font-family:var(--f-disp);font-weight:700;font-size:10px;color:#22186E">05</div></div></div><div><div style="aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:#fff;border:1px solid var(--line);"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#FBF9FE,#F3EEFC)"></div><div style="position:absolute;left:10px;top:9px;width:26px;height:4px;border-radius:2px;background:var(--grad-mark)"></div><div style="position:absolute;left:10px;bottom:10px;font-family:var(--f-disp);font-weight:700;font-size:10px;color:#22186E">06</div></div></div></div>
+    <p class="small mut" style="margin-top:6px">Пример ритма колоды: тёмный · тёмный · светлый · тёмный · светлый · светлый — ни один фон не тянется больше двух слайдов подряд.</p>
+    <div class="note warn"><b>Не мешать фоны внутри одного логического блока.</b> Чередование идёт по колоде,
+    но связанные слайды (одна тема, одна серия сравнений) держат общий фон. Логотип на светлом — версия
+    с индиго-начертанием, знак остаётся градиентным.</div></section>
 <section class="band" id="sl-assembly"><h3 style="margin-top:0">Сборка слайда</h3>
     <p class="lead">Единая сетка держит колоду целостной. Поля, зона заголовка и подвал одинаковы на всех слайдах —
     меняется только содержимое контентной области.</p>
@@ -1430,12 +1454,12 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
     </div></section>
 <section class="band" id="sl-checklist"><h3 style="margin-top:0">Чек-лист</h3>
     <p class="lead">Быстрая проверка перед отправкой колоды. Если хоть один пункт не выполнен — слайд ещё не готов.</p>
-    <div class="card" style="margin-top:14px"><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Заголовок формулирует вывод, а не тему</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Одна мысль на слайд; лишнее вынесено на следующий</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Фон — ink с одним свечением или hairline-сетка</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Шрифты только Onest + JetBrains Mono; Inter/Bricolage не подмешаны</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Данные — в violet-гамме SERIES, без «радужных» палитр</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Один акцент violet в фокусе; lime — только на CTA</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Подвал с логотипом и alphyn.ai на месте</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Контраст текста к фону проходит (≥ 4.5:1)</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Нет гексагонов, стоковых фонов, тёплых градиентов</span></div></div></section>
+    <div class="card" style="margin-top:14px"><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Заголовок формулирует вывод, а не тему</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Одна мысль на слайд; лишнее вынесено на следующий</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Фон по ритму колоды: тёмный/светлый чередуются, ≤ 2 подряд на одном фоне</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Шрифты только Onest + JetBrains Mono; Inter/Bricolage не подмешаны</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Данные — в violet-гамме SERIES, без «радужных» палитр</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Один акцент violet в фокусе; lime — только на CTA</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Подвал с логотипом и alphyn.ai на месте</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Контраст текста к фону проходит (≥ 4.5:1)</span></div><div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)"><span style="color:var(--positive);flex:0 0 auto;margin-top:1px">✓</span><span class="small" style="color:var(--soft)">Нет гексагонов, стоковых фонов, тёплых градиентов</span></div></div></section>
 <section class="band" id="sl-rules"><hr class="div"><h3 style="margin-top:0">Правила</h3>
     <div class="grid g2" style="margin-top:8px">
-      <div class="card" style="border-color:rgba(207,22,61,.3)"><h4 style="color:var(--minio-soft)">✕ Не делать</h4>
+      <div class="card" style="border-color:rgba(240,67,107,.3)"><h4 style="color:var(--negative)">✕ Не делать</h4>
         <ul class="small" style="color:var(--soft);line-height:1.9;margin:10px 0 0;padding-left:18px">
-          <li>Смешивать тёмные и светлые слайды в одной колоде</li>
+          <li>Больше 2 слайдов подряд на одном фоне; мешать фоны внутри одного логического блока</li>
           <li>Заголовок-тема вместо заголовка-вывода</li>
           <li>Больше одной идеи и «стены текста» на слайде</li>
           <li>Стоковые фото-фоны, текстуры, гексагоны</li>
@@ -1447,8 +1471,8 @@ figcaption{font-size:12.5px; color:var(--muted); margin-top:8px}
           <li>Заголовок = вывод, тело = доказательство</li>
           <li>Тёмный ink + одно violet-свечение</li>
           <li>Крупные цифры и графики в violet-гамме</li>
-          <li>Единая сетка: поля, заголовок, подвал</li>
-          <li>Onest, акцент точечно</li></ul></div>
+          <li>Чередовать тёмный / светлый фон (≤ 2 подряд)</li>
+          <li>Единая сетка: поля, заголовок, подвал; Onest, акцент точечно</li></ul></div>
     </div></section></div></section>
 <section class="chapter" id="chap-descr"><div class="wrap"><section class="band" id="d-company"><h2>О компании</h2>
     <div class="kicker">Описания · 05</div>
