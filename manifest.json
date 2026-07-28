@@ -3,7 +3,7 @@
  "meta": {
   "brand": "Alphyn",
   "tagline": "Open lakehouse platform — from raw data to agentic AI",
-  "version": "1.3",
+  "version": "1.4",
   "updated": "28.07.2026",
   "brandbook_url": "https://TerryAirwalker.github.io/alphyn-brandbook/",
   "manifest_url": "https://TerryAirwalker.github.io/alphyn-brandbook/manifest.json",
@@ -20,14 +20,37 @@
   "Начни с entrypoint, затем по routing определи, какие ключи читать под свою задачу.",
   "Не выдумывай цвета, шрифты, формы и тексты — бери из манифеста. Человекочитаемый референс — брендбук (meta.brandbook_url).",
   "Тёмная тема — основная, светлая — равноправна (особенно презентации/печать). Слайды: чередуй фоны (не более 2 подряд).",
-  "Соблюдай rules_global.forbidden. Тёплые и чужие бренд-цвета запрещены. Проверяй результат по checklist'ам (self_check_before_delivery)."
+  "Соблюдай rules_global.forbidden. Тёплые и чужие бренд-цвета запрещены. Проверяй результат по checklist'ам (self_check_before_delivery).",
+  "ПЕРЕД сборкой ВСЕГДА уточни у пользователя (см. clarify_before_start): (1) язык материала — от него зависит гарнитурная пара (RU→кириллическая, EN→латинская); (2) нужна ли редактируемая .pptx. Не переспрашивай то, что уже явно задано в запросе.",
+  "В КОНЦЕ ВСЕГДА отдавай в чат ВСЕ варианты материала (напр. редактируемый .pptx + PDF/PNG-превью), а не один; прикладывай файлы, а не только пути (см. deliver_all_variants)."
  ],
+ "clarify_before_start": {
+  "when": "Всегда, до начала сборки любого материала.",
+  "ask": [
+   "Язык материала (напр. русский / английский) — определяет гарнитурную пару: RU → Onest+JetBrains Mono, EN/латиница → Bricolage Grotesque+JetBrains Mono.",
+   "Нужна ли редактируемая версия в .pptx (Режим A: живой текст + встроенные шрифты) или достаточно плоского вывода (PDF/PNG). По умолчанию — редактируемая, но подтверждай."
+  ],
+  "skip_if": "Пользователь уже явно указал параметр в запросе — тогда не переспрашивай его, уточни только недостающее. Прочие недостающие факты/цифры запрашивай там же (rules_global.texts).",
+  "how": "Задай одним блоком уточняющих вопросов (в Claude Code — AskUserQuestion)."
+ },
+ "deliver_all_variants": {
+  "rule": "В конце процесса всегда выдавай в чат ВСЕ варианты материала, не только один.",
+  "examples": {
+   "presentation": "редактируемый .pptx (если запрошен) + PDF и/или PNG-превью всех слайдов",
+   "web_html": "HTML-файл + PNG-рендер",
+   "document": "исходник (.docx) + PDF",
+   "chart_or_graphic": "исходный формат + PNG"
+  },
+  "note": "Прикладывай файлы через доставку файлов в чат (не только пути). Не жди, пока пользователь попросит недостающий вариант."
+ },
  "entrypoint": {
   "step1": "Загрузи весь JSON в контекст (он маленький).",
   "step2": "Прочитай $schema_note и how_agent_should_use.",
+  "step2_5": "ОБЯЗАТЕЛЬНО уточни у пользователя параметры из clarify_before_start (язык; нужна ли редактируемая .pptx) до сборки.",
   "step3": "Определи тип задачи и возьми список ключей из routing.",
-  "step4": "Собери материал, используя ТОЛЬКО токены/правила из этих ключей; шрифты Onest/JetBrains Mono встраивай.",
-  "step5": "Проверь: rules_global.forbidden; слайды — slides.checklist; графики/схемы — data_visualization; тексты — products/descriptions."
+  "step4": "Собери материал, используя ТОЛЬКО токены/правила из этих ключей; шрифты нужной пары встраивай.",
+  "step5": "Проверь: rules_global.forbidden; слайды — slides.checklist; графики/схемы — data_visualization; тексты — products/descriptions.",
+  "step6": "Выдай в чат ВСЕ варианты материала (deliver_all_variants) + список токенов и тип материала."
  },
  "routing": {
   "presentation_slide": [
