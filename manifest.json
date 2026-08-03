@@ -3,8 +3,8 @@
  "meta": {
   "brand": "Alphyn",
   "tagline": "Open lakehouse platform — from raw data to agentic AI",
-  "version": "1.4",
-  "updated": "28.07.2026",
+  "version": "1.5",
+  "updated": "03.08.2026",
   "brandbook_url": "https://TerryAirwalker.github.io/alphyn-brandbook/",
   "manifest_url": "https://TerryAirwalker.github.io/alphyn-brandbook/manifest.json",
   "assets_repo": "https://github.com/TerryAirwalker/alphyn-brandbook",
@@ -12,7 +12,11 @@
   "skill": "https://TerryAirwalker.github.io/alphyn-brandbook/skill/alphyn-design/SKILL.md",
   "skill_raw": "https://raw.githubusercontent.com/TerryAirwalker/alphyn-brandbook/main/skill/alphyn-design/SKILL.md",
   "self_serve": true,
-  "self_serve_note": "У бренда нет отдельного согласующего маркетинга: агент работает самостоятельно по этому манифесту и брендбуку. Публичные материалы (сайт/лендинги) можно готовить и отдавать как макет/черновик; фактические тексты и цифры — только из descriptions/сайта alphyn.ai.",
+  "self_serve_note": "Большинство материалов агент готовит самостоятельно по этому манифесту и брендбуку. Публичные материалы (сайт/лендинги) можно готовить и отдавать как макет/черновик; фактические тексты и цифры — только из descriptions/сайта alphyn.ai. Нестандартный запрос, новый ассет или исключение из правил — согласовать с контактом из meta.contact.",
+  "contact": {
+   "email": "ms@datasapience.ru",
+   "person": "Марика Саар — руководитель маркетинга"
+  },
   "character": "dark-premium · type-forward · холодная violet/indigo гамма"
  },
  "how_agent_should_use": [
@@ -1122,7 +1126,7 @@
  "assets": {
   "repo": "https://github.com/TerryAirwalker/alphyn-brandbook",
   "brandbook_html": "https://TerryAirwalker.github.io/alphyn-brandbook/",
-  "generator": "генератор брендбука (build.py + chapters.py + fonts-embedded.css + assets/logo) — источник истины; HTML собирается из него",
+  "generator": "внутренний генератор брендбука (build.py + chapters.py + fonts-embedded.css + assets/logo) — источник истины; HTML и manifest.json собираются из него; хранится и обновляется отдельно от этого публичного репозитория",
   "logos": "assets/logo — знак (SVG-path) + начертание ALPHYN (wordmark.svg, recolorable через fill); локап собирается программно",
   "fonts": "Onest (заголовки+текст), JetBrains Mono (моно) — woff2 base64 в fonts-embedded.css, OFL",
   "skill": "https://TerryAirwalker.github.io/alphyn-brandbook/skill/alphyn-design/SKILL.md"
