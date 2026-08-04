@@ -3,7 +3,7 @@
  "meta": {
   "brand": "Alphyn",
   "tagline": "Open lakehouse platform — from raw data to agentic AI",
-  "version": "1.8",
+  "version": "1.9",
   "updated": "04.08.2026",
   "brandbook_url": "https://TerryAirwalker.github.io/alphyn-brandbook/",
   "manifest_url": "https://TerryAirwalker.github.io/alphyn-brandbook/manifest.json",
@@ -77,7 +77,8 @@
    "gradients",
    "effects",
    "logo",
-   "layout"
+   "layout",
+   "slides"
   ],
   "social_or_banner": [
    "colors",
@@ -333,6 +334,7 @@
   ],
   "bricolage_exception": "Bricolage Grotesque разрешён для латинских (EN) материалов как полноценная замена Onest — заголовки И текст (латиница, вес 400–800), в паре с JetBrains Mono. Запрещено: использовать Bricolage только для заголовков, оставляя Onest в теле того же материала (это даёт 3 гарнитуры вместе с JetBrains Mono — ЗАПРЕЩЕНО); использовать Bricolage для кириллического текста (глифов нет). По умолчанию (RU-материалы) — Onest на всё.",
   "embed": "Все используемые шрифты (Onest, JetBrains Mono, при EN-заголовках — Bricolage Grotesque latin) ВСТРАИВАТЬ в артефакты (@font-face data:font base64 для HTML; p:embeddedFontLst для .pptx). Все OFL — лицензия не нужна.",
+  "hierarchy_desktop_scope": "Шкала ниже — для веба/лендингов (реальные CSS px в браузере, не привязаны к канвасу). Правило «не мельче 13pt (≈17–18px)» из rules_global/self_check_before_delivery — про СЛАЙДЫ И ПЕЧАТНЫЕ материалы (typography.on_slides, канвас 1280×720 или физический лист), а НЕ про веб буквально: на вебе ориентируйся на эту шкалу (Caption 12–13px, Kicker 11–12px — это нормальные, читаемые веб-размеры, они МЕНЬШЕ 13pt/17px и это ожидаемо).",
   "hierarchy_desktop": [
    {
     "level": "H1",
@@ -977,13 +979,13 @@
    "Название «Alphyn» — максимум 1 раз на слайде/материале (обычно логотип)",
    "цифры/статистику выравнивать равными колонками (grid repeat(N,1fr))",
    "встраивать шрифты Onest/JetBrains Mono (или Bricolage Grotesque в латинской паре) в артефакты",
-   "не более 2 гарнитур на материале (typography.font_pairs); описательный текст (подписи/сноски/подвал) — не мельче 13pt"
+   "не более 2 гарнитур на материале (typography.font_pairs); на слайдах/в печати описательный текст (подписи/сноски/подвал) — не мельче 13pt (на вебе — своя шкала, typography.hierarchy_desktop)"
   ],
   "forbidden": [
    "менять/перерисовывать знак, тени/обводки/поворот на нём",
    "нефирменные шрифты (Inter, Arial, системные) и цвета",
    "более 2 гарнитур одновременно на одном материале; смешивать Bricolage и Onest как текстовые гарнитуры в одном материале (см. typography.font_pairs)",
-   "описательный текст (подписи/сноски/подвал) мельче 13pt",
+   "на слайдах/в печати — описательный текст (подписи/сноски/подвал) мельче 13pt (веб — см. typography.hierarchy_desktop, там свои минимумы)",
    "тёплые цвета (оранжевый/жёлтый/коричневый)",
    "чужие/партнёрские бренд-цвета как сквозная тема",
    "гексагональный мотив как декор",
@@ -1000,7 +1002,7 @@
     "знак не изменён; логотип по фону (тёмный→белый, светлый→индиго); правило одного упоминания",
     "логотип НЕ в текстовом варианте: любое присутствие лого включает знак-глиф (локап — горизонтальный/стековый — или только-знак, см. logo.layouts); текстовое начертание ALPHYN без знака запрещено (в т.ч. в подвале/колонтитуле)",
     "не более 2 гарнитур на материале: кириллическая пара (Onest+JetBrains Mono) ИЛИ латинская пара (Bricolage Grotesque+JetBrains Mono) — не смешаны (typography.font_pairs); все шрифты встроены (@font-face base64 / p:embeddedFontLst)",
-    "описательный текст (подписи/сноски/подвал) — не мельче 13pt",
+    "описательный текст (подписи/сноски/подвал) — не мельче 13pt на слайдах/в печати; на вебе — по typography.hierarchy_desktop",
     "висячие предлоги приклеены &nbsp; (typography.hanging_words_nbsp)",
     "слайды — slides.checklist; чередование фонов ≤ 2 подряд",
     "графики/схемы — data_visualization (холодные растяжки, семантика цвета, минимум декора)",
@@ -1123,7 +1125,7 @@
   "brandbook_html": "https://TerryAirwalker.github.io/alphyn-brandbook/",
   "generator": "внутренний генератор брендбука (build.py + chapters.py + fonts-embedded.css + assets/logo) — источник истины; HTML и manifest.json собираются из него; хранится и обновляется отдельно от этого публичного репозитория",
   "logos": "assets/logo — знак (SVG-path) + начертание ALPHYN (wordmark.svg, recolorable через fill); локап собирается программно",
-  "fonts": "Onest (заголовки+текст), JetBrains Mono (моно) — woff2 base64 в fonts-embedded.css, OFL",
+  "fonts": "Onest (заголовки+текст), JetBrains Mono (моно), OFL — публично как TTF в assets/fonts-embed/*.ttf (для @font-face на вебе тоже подходит, не только для p:embeddedFontLst в pptx); woff2-версии (fonts-embedded.css) — внутри приватного генератора, не публикуются.",
   "skill": "https://TerryAirwalker.github.io/alphyn-brandbook/skill/alphyn-design/SKILL.md"
  },
  "materials": {
