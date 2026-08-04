@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-РЕФЕРЕНС-ШАБЛОН редактируемого слайда Alphyn (тип «Данные», Режим A).
-Проверен на манифесте v1.1: крупная цифра + вывод + две icon_card с lucide-иконками.
+РЕФЕРЕНС-ШАБЛОН редактируемого слайда Alphyn (тип «Данные», Режим A):
+крупная цифра + вывод + две icon_card с lucide-иконками.
+Ревалидировать при каждом релизе брендбука (фон/типографика меняются между версиями) —
+см. `manifest.meta.version` для текущей версии, не хардкодить номер здесь.
 
 Как работает (Режим A по manifest.slides.editability):
   1. Декор (aurora_ink + blueprint-сетка + контейнеры карточек + lucide-иконки + знак)
@@ -11,7 +13,10 @@
   3. Шрифты Onest/JetBrains Mono встраиваются отдельным шагом: embed_fonts.py.
 
 Иконки/цвета/типографика берутся из брендбука (assets/icons/icons.json + токены манифеста).
-Адаптируй тексты/цифры под задачу — цифры только из products/alphyn.ai, не выдумывать.
+Адаптируй тексты/цифры под задачу — цифры и capability-формулировки только из
+manifest.products[].capabilities / alphyn.ai, не выдумывать сторонние тулы/технологии
+(карточки ниже — прямой перевод capabilities Lakehouse/AI Studio, не пример для копирования
+слов, а пример СТРУКТУРЫ: заголовок + ≤4 коротких пункта через « · », 13pt минимум).
 
 Запуск:  python3 make_slide.py   (-> out/test_slide.pptx, out/slide_full.png)
          python3 embed_fonts.py out/test_slide.pptx
@@ -82,12 +87,12 @@ def build_html(decor=True):
         <div style="position:absolute;left:{c['x']+104}px;top:{CARD1_Y+30}px;font-family:'Onest';font-weight:700;
           font-size:25px;color:{TEXT}">Lakehouse</div>
         <div style="position:absolute;left:{c['x']+104}px;top:{CARD1_Y+72}px;width:{c['w']-134}px;font-family:'Onest';
-          font-weight:400;font-size:17px;line-height:1.5;color:{MUTED}">StarRocks · Impala · Spark · Trino на{NBSP}Iceberg/S3</div>
+          font-weight:400;font-size:17px;line-height:1.5;color:{MUTED}">Iceberg-фундамент · унифицированная аналитика · multi-engine{NBSP}SQL · real-time</div>
         <div style="position:absolute;left:{c['x']+104}px;top:{CARD2_Y+30}px;font-family:'Onest';font-weight:700;
           font-size:25px;color:{TEXT}">AI Studio</div>
         <div style="position:absolute;left:{c['x']+104}px;top:{CARD2_Y+72}px;width:{c['w']-134}px;font-family:'Onest';
-          font-weight:400;font-size:17px;line-height:1.5;color:{MUTED}">ML · GenAI · агентный AI, MLOps/LLMOps</div>
-        <div style="position:absolute;left:168px;top:988px;font-family:'JetBrains Mono';font-size:16px;
+          font-weight:400;font-size:17px;line-height:1.5;color:{MUTED}">Разработка моделей · MLOps-автоматизация · distributed{NBSP}training · Arrow-connectivity</div>
+        <div style="position:absolute;left:168px;top:988px;font-family:'JetBrains Mono';font-size:17px;
           color:{MUTED};letter-spacing:.04em">alphyn.ai</div>'''
     return f'''<!doctype html><html><head><meta charset="utf-8">{fonts}
     <style>*{{margin:0;box-sizing:border-box}}html,body{{width:{W}px;height:{H}px;overflow:hidden}}</style></head>
@@ -152,10 +157,10 @@ def main():
     tb(132, 600, 960, 240, [("данных под" + NBSP + "управлением одной платформы" + NBSP + "— на" + NBSP + "открытом "
         "lakehouse-контуре, без" + NBSP + "копий между системами и" + NBSP + "вендорского замка.", SOFT)], 23, 400, "Onest", lh=1.5)
     tb(c['x']+104, CARD1_Y+28, c['w']-134, 40, [("Lakehouse", TEXT)], 18, 700)
-    tb(c['x']+104, CARD1_Y+70, c['w']-134, 110, [("StarRocks · Impala · Spark · Trino на" + NBSP + "Iceberg/S3", MUTED)], 12.5, 400, lh=1.5)
+    tb(c['x']+104, CARD1_Y+70, c['w']-134, 110, [("Iceberg-фундамент · унифицированная аналитика · multi-engine" + NBSP + "SQL · real-time", MUTED)], 13, 400, lh=1.5)
     tb(c['x']+104, CARD2_Y+28, c['w']-134, 40, [("AI Studio", TEXT)], 18, 700)
-    tb(c['x']+104, CARD2_Y+70, c['w']-134, 110, [("ML · GenAI · агентный AI, MLOps/LLMOps", MUTED)], 12.5, 400, lh=1.5)
-    tb(168, 984, 400, 40, [("alphyn.ai", MUTED)], 12, 400, "JetBrains Mono")
+    tb(c['x']+104, CARD2_Y+70, c['w']-134, 110, [("Разработка моделей · MLOps-автоматизация · distributed" + NBSP + "training · Arrow-connectivity", MUTED)], 13, 400, lh=1.5)
+    tb(168, 984, 400, 40, [("alphyn.ai", MUTED)], 13, 400, "JetBrains Mono")
 
     prs.save(str(ROOT / "test_slide.pptx"))
     print("saved:", ROOT / "test_slide.pptx", "| proof:", ROOT / "slide_full.png")
