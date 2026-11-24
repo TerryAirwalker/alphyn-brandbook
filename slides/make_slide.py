@@ -18,6 +18,12 @@ manifest.products[].capabilities / alphyn.ai, не выдумывать стор
 (карточки ниже — прямой перевод capabilities Lakehouse/AI Studio, не пример для копирования
 слов, а пример СТРУКТУРЫ: заголовок + ≤4 коротких пункта через « · », 13pt минимум).
 
+Вспомогательный цвет (manifest.colors.extended_palettes.accent_in_details): на слайде — ОДИН
+вспомогательный цвет (ACCENT_NAME = "aqua" | "raspberry"), он идёт в мелкие детали: иконки, полоса
+сверху у карточек, моно-лейбл. Однотипные элементы (обе карточки, все иконки) — одним цветом, без
+чередования. Фон, заголовок, цифра и знак остаются в violet/ink. На соседних
+слайдах колоды аква и малиновая чередуются; ACCENT_NAME=None — слайд без акцента (обложка).
+
 Запуск:  python3 make_slide.py   (-> out/test_slide.pptx, out/slide_full.png)
          python3 embed_fonts.py out/test_slide.pptx
 """
@@ -34,6 +40,11 @@ INK = "#08060F"; INK2 = "#0E0A1C"
 VIOLET = "#6E40D7"; VBRIGHT = "#8A5BF0"; INDIGO = "#22186E"; LAV = "#B8ABF4"
 TEXT = "#EDEAFB"; SOFT = "#C9C2E6"; MUTED = "#9D95C4"
 LINE = "rgba(184,171,244,.10)"
+# один вспомогательный цвет на слайд: (основной, светлый для тёмного фона, rgba-тинт для контейнера иконки)
+ACCENTS = {"aqua": ("#1FA8BE", "#4FCEDF", "rgba(31,168,190,.14)"),
+           "raspberry": ("#CE2A7B", "#E85F9F", "rgba(206,42,123,.14)")}
+ACCENT_NAME = "aqua"   # "aqua" | "raspberry" | None
+ACC_MAIN, ACC_LIGHT, ACC_TINT = ACCENTS.get(ACCENT_NAME, (VIOLET, VBRIGHT, "rgba(138,91,240,.12)"))
 NBSP = " "
 
 W, H = 1920, 1080
@@ -43,7 +54,7 @@ CARD1_Y, CARD2_Y = 318, 563
 ICON_BOX, INSET = 56, 30
 
 
-def icon_svg(name, color=VBRIGHT, box=ICON_BOX, gl=26):
+def icon_svg(name, color=ACC_LIGHT, box=ICON_BOX, gl=26):
     pad = (box - gl) / 2
     return (f'<svg width="{gl}" height="{gl}" viewBox="0 0 24 24" fill="none" stroke="{color}" '
             f'stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" '
@@ -58,9 +69,9 @@ def mark_glyph(h=24):
 def card_html(cy, icon):
     c = CARD
     return f'''<div style="position:absolute;left:{c['x']}px;top:{cy}px;width:{c['w']}px;height:{c['h']}px;
-      background:{INK2};border:1px solid {LINE};border-radius:18px;box-sizing:border-box">
+      background:{INK2};border:1px solid {LINE};border-top:4px solid {ACC_MAIN};border-radius:18px;box-sizing:border-box">
       <div style="position:absolute;left:{INSET}px;top:{INSET}px;width:{ICON_BOX}px;height:{ICON_BOX}px;
-        background:rgba(138,91,240,.12);border-radius:14px">{icon_svg(icon)}</div></div>'''
+        background:{ACC_TINT};border-radius:14px">{icon_svg(icon)}</div></div>'''
 
 
 def build_html(decor=True):
@@ -78,7 +89,7 @@ def build_html(decor=True):
     if not decor:
         text_layer = f'''
         <div style="position:absolute;left:130px;top:300px;font-family:'JetBrains Mono';font-size:15px;
-          letter-spacing:.18em;color:{LAV};text-transform:uppercase">ПРОДАКШЕН{NBSP}· ОТКРЫТЫЙ LAKEHOUSE</div>
+          letter-spacing:.18em;color:{ACC_LIGHT};text-transform:uppercase">ПРОДАКШЕН{NBSP}· ОТКРЫТЫЙ LAKEHOUSE</div>
         <div style="position:absolute;left:126px;top:330px;font-family:'Onest';font-weight:800;font-size:200px;
           letter-spacing:-.03em;line-height:.98;color:{TEXT}">3{NBSP}ПБ<span style="color:{VBRIGHT}">+</span></div>
         <div style="position:absolute;left:132px;top:600px;width:960px;font-family:'Onest';font-weight:400;
@@ -152,7 +163,7 @@ def main():
             f.color.rgb = hexrgb(col); f.language_id = MSO_LANGUAGE_ID.RUSSIAN
 
     c = CARD
-    tb(130, 300, 900, 34, [("ПРОДАКШЕН" + NBSP + "· ОТКРЫТЫЙ LAKEHOUSE", LAV)], 11.5, 400, "JetBrains Mono")
+    tb(130, 300, 900, 34, [("ПРОДАКШЕН" + NBSP + "· ОТКРЫТЫЙ LAKEHOUSE", ACC_LIGHT)], 11.5, 400, "JetBrains Mono")
     tb(126, 322, 1000, 250, [("3" + NBSP + "ПБ", TEXT), ("+", VBRIGHT)], 108, 800, "Onest", lh=0.98)
     tb(132, 600, 960, 240, [("данных под" + NBSP + "управлением одной платформы" + NBSP + "— на" + NBSP + "открытом "
         "lakehouse-контуре, без" + NBSP + "копий между системами и" + NBSP + "вендорского замка.", SOFT)], 23, 400, "Onest", lh=1.5)
